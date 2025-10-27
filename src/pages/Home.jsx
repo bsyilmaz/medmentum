@@ -10,7 +10,6 @@ import HoverCard from '../components/animations/HoverCard'
 import MagneticButton from '../components/animations/MagneticButton'
 import { AnimatedCard } from '../components/animations/AnimatedCard'
 import { MorphingText } from '../components/ui/MorphingText'
-import ScrollStack, { ScrollStackItem } from '../components/animations/ScrollStack'
 import SEO from '../components/SEO'
 import { OrganizationSchema, WebsiteSchema } from '../components/StructuredData'
 import Input from '../components/ui/Input'
@@ -172,13 +171,13 @@ const Home = () => {
       <section className="py-32 bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-950 dark:to-gray-900">
         <div className="container mx-auto px-6">
           <FadeIn>
-            <div className="text-center mb-12">
+            <div className="text-center mb-8">
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-gray-900 dark:text-white"
+                className="text-3xl md:text-4xl font-extrabold mb-4 text-gray-900 dark:text-white"
               >
                 Neden <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">Medmentum?</span>
               </motion.h2>
@@ -187,7 +186,7 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2, duration: 0.6 }}
-                className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed"
+                className="text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed mb-12"
               >
                 Sağlık profesyonellerinin ihtiyaçları için özel olarak tasarlanmış 
                 güçlü özellikler ve yenilikçi çözümler
@@ -195,35 +194,34 @@ const Home = () => {
             </div>
           </FadeIn>
 
-          <div className="max-w-4xl mx-auto" style={{ height: '800px' }}>
-            <ScrollStack
-              itemDistance={150}
-              itemScale={0.05}
-              itemStackDistance={40}
-              stackPosition="20%"
-              scaleEndPosition="10%"
-              baseScale={0.85}
-              rotationAmount={2}
-              blurAmount={3}
-            >
-              {features.map((feature, index) => (
-                <ScrollStackItem key={index}>
-                  <div className="flex flex-col items-center text-center bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                whileHover={{ y: -8, scale: 1.02 }}
+                className="group"
+              >
+                <HoverCard>
+                  <Card className="h-full p-6 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-lg hover:shadow-xl transition-all duration-300">
                     <motion.div
                       whileHover={{ scale: 1.1, rotate: [0, -10, 10, 0] }}
-                      transition={{ duration: 0.5 }}
-                      className={`w-20 h-20 rounded-3xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-6 shadow-lg`}
+                      transition={{ duration: 0.3 }}
+                      className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-4 shadow-md group-hover:shadow-lg transition-shadow`}
                     >
-                      <feature.icon className="text-white" size={40} />
+                      <feature.icon className="text-white" size={32} />
                     </motion.div>
-                    <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">{feature.title}</h3>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
+                    <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">{feature.title}</h3>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                       {feature.description}
                     </p>
-                  </div>
-                </ScrollStackItem>
-              ))}
-            </ScrollStack>
+                  </Card>
+                </HoverCard>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

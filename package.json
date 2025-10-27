@@ -1,0 +1,56 @@
+{
+  "name": "medmentum",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Professional healthcare technology platform with React, Tailwind, Framer Motion, and Supabase. SEO optimized with rich snippets, structured data, and social media integration.",
+  "keywords": [
+    "healthcare",
+    "technology",
+    "AI",
+    "telemedicine",
+    "digital-health",
+    "react",
+    "supabase"
+  ],
+  "author": "Medmentum",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@radix-ui/react-hover-card": "^1.1.15",
+    "@supabase/supabase-js": "^2.76.1",
+    "@tailwindcss/postcss": "^4.1.16",
+    "autoprefixer": "^10.4.21",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.23.24",
+    "lucide-react": "^0.548.0",
+    "mathjs": "^15.0.0",
+    "postcss": "^8.5.6",
+    "qss": "^3.0.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-helmet-async": "^2.0.5",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^7.9.4",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^4.1.16",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "@types/react": "^19.1.16",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.4",
+    "eslint": "^9.36.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.22",
+    "globals": "^16.4.0",
+    "vite": "^7.1.7"
+  }
+}

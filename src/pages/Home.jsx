@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, Activity, Brain, Heart, Shield, Users, Zap, X, Send, Building2 } from 'lucide-react'
+import { ArrowRight, Activity, Brain, Heart, Shield, Users, Zap, X, Send, Building2, Briefcase } from 'lucide-react'
 import Button from '../components/ui/Button'
 import Card from '../components/ui/Card'
 import FadeIn from '../components/animations/FadeIn'
@@ -10,6 +10,7 @@ import HoverCard from '../components/animations/HoverCard'
 import MagneticButton from '../components/animations/MagneticButton'
 import { AnimatedCard } from '../components/animations/AnimatedCard'
 import { MorphingText } from '../components/ui/MorphingText'
+import ScrollStack, { ScrollStackItem } from '../components/animations/ScrollStack'
 import SEO from '../components/SEO'
 import { OrganizationSchema, WebsiteSchema } from '../components/StructuredData'
 import Input from '../components/ui/Input'
@@ -133,7 +134,7 @@ const Home = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.6 }}
-                className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed"
+                className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed text-center"
               >
                 Yapay zeka destekli teşhis, gerçek zamanlı izleme ve hasta odaklı bakım ile 
                 sağlık hizmetlerinde yeni bir çağ başlatıyoruz.
@@ -194,23 +195,26 @@ const Home = () => {
             </div>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <ScrollStack
+            useWindowScroll={true}
+            itemDistance={80}
+            itemScale={0.05}
+            itemStackDistance={40}
+            stackPosition="30%"
+            scaleEndPosition="20%"
+            baseScale={0.90}
+            rotationAmount={0}
+            blurAmount={2}
+            className="max-w-4xl mx-auto"
+          >
             {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.15, duration: 0.6 }}
-                whileHover={{ y: -12, scale: 1.02 }}
-                className="group"
-              >
-                <HoverCard>
-                  <Card className="h-full p-8 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-xl hover:shadow-2xl transition-all duration-500">
+              <ScrollStackItem key={index}>
+                <Card className="h-full p-8 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-xl transition-all duration-500">
+                  <div className="flex flex-col items-center text-center">
                     <motion.div
                       whileHover={{ scale: 1.1, rotate: [0, -10, 10, 0] }}
                       transition={{ duration: 0.5 }}
-                      className={`w-20 h-20 rounded-3xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-8 shadow-lg group-hover:shadow-xl transition-shadow`}
+                      className={`w-20 h-20 rounded-3xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-8 shadow-lg`}
                     >
                       <feature.icon className="text-white" size={40} />
                     </motion.div>
@@ -218,11 +222,11 @@ const Home = () => {
                     <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
                       {feature.description}
                     </p>
-                  </Card>
-                </HoverCard>
-              </motion.div>
+                  </div>
+                </Card>
+              </ScrollStackItem>
             ))}
-          </div>
+          </ScrollStack>
         </div>
       </section>
 

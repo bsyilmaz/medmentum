@@ -6,6 +6,7 @@ import { HoverBorderGradient } from '../components/ui/HoverBorderGradient'
 import HoverCard from '../components/animations/HoverCard'
 import MagneticButton from '../components/animations/MagneticButton'
 import { Marquee } from '../components/ui/Marquee'
+import Particles from '../components/animations/Particles'
 
 const MakoDetail = () => {
   const updates = [
@@ -146,7 +147,26 @@ const MakoDetail = () => {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+      <div className="fixed inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-purple-950 -z-10">
+        <Particles count={50} />
+        <motion.div
+          animate={{
+            scale: [1, 1.1, 1],
+            rotate: [0, 90, 0],
+          }}
+          transition={{ duration: 20, repeat: Infinity }}
+          className="absolute top-20 left-20 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, -90, 0],
+          }}
+          transition={{ duration: 25, repeat: Infinity }}
+          className="absolute bottom-20 right-20 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30"
+        />
+      </div>
       <SEO 
         title="MAKO Medical Assistant Kiosk | Akıllı Sağlık Asistanı"
         description="MAKO Medical Assistant Kiosk - Yapay zeka destekli self-servis hasta kabul ve yönlendirme sistemi. Yüz tanıma, sesli asistan ve akıllı sıra yönetimi."

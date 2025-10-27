@@ -115,14 +115,14 @@ const Home = () => {
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <FadeIn delay={0.2}>
-              <div className="mb-8">
+              <div className="mb-8 text-center">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight mb-4">
                   Sağlık Hizmetlerini
                 </h1>
-                <div className="flex justify-center items-center h-16 md:h-20">
+                <div className="h-16 md:h-20 flex justify-center items-center">
                   <MorphingText 
                     texts={['Dönüştürüyoruz', 'Yeniliyoruz', 'İyileştiriyoruz', 'Geliştiriyoruz']}
-                    className="text-4xl md:text-5xl lg:text-6xl h-auto leading-none text-gray-900 dark:text-white mx-auto text-center w-auto"
+                    className="text-4xl md:text-5xl lg:text-6xl h-auto leading-none text-gray-900 dark:text-white"
                   />
                 </div>
               </div>

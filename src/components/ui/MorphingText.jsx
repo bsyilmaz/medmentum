@@ -93,11 +93,11 @@ const Texts = ({ texts, leftAligned = false }) => {
   return (
     <>
       <span
-        className={leftAligned ? "absolute left-0 top-0 inline-block w-full" : "absolute inset-x-0 top-0 m-auto inline-block w-full"}
+        className={leftAligned ? "absolute left-0 top-0 inline-block w-full text-center" : "absolute left-1/2 top-0 -translate-x-1/2 inline-block w-full"}
         ref={text1Ref}
       />
       <span
-        className={leftAligned ? "absolute left-0 top-0 inline-block w-full" : "absolute inset-x-0 top-0 m-auto inline-block w-full"}
+        className={leftAligned ? "absolute left-0 top-0 inline-block w-full text-center" : "absolute left-1/2 top-0 -translate-x-1/2 inline-block w-full"}
         ref={text2Ref}
       />
     </>

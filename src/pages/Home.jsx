@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, Activity, Brain, Heart, Shield, Users, Zap, X, Send, Building2, Briefcase, MapPin, Clock, Code2 } from 'lucide-react'
+import { ArrowRight, Brain, Heart, Shield, Users, Zap, X, Send, Building2 } from 'lucide-react'
 import Button from '../components/ui/Button'
 import Card from '../components/ui/Card'
 import FadeIn from '../components/animations/FadeIn'
@@ -39,33 +39,6 @@ const Home = () => {
       needs: ''
     })
   }
-
-  const jobListings = [
-    {
-      id: 1,
-      title: 'Senior AI Engineer',
-      department: 'Yapay Zeka & Makine Öğrenmesi',
-      location: 'İstanbul, Türkiye',
-      type: 'Full-time',
-      typeIcon: Clock,
-    },
-    {
-      id: 2,
-      title: 'Full Stack Developer',
-      department: 'Yazılım Geliştirme',
-      location: 'Remote',
-      type: 'Full-time',
-      typeIcon: Code2,
-    },
-    {
-      id: 3,
-      title: 'Healthcare Data Analyst',
-      department: 'Veri Bilimi',
-      location: 'Ankara, Türkiye',
-      type: 'Full-time',
-      typeIcon: Activity,
-    },
-  ]
 
   const features = [
     {
@@ -106,36 +79,6 @@ const Home = () => {
     },
   ]
 
-  // Important dates for calendar
-  const importantDates = [
-    { date: new Date('2024-12-15'), title: 'Yeni Özellik Duyurusu', description: 'AI teşhis motoru güncellemesi' },
-    { date: new Date('2024-12-20'), title: 'Eğitim Webinarı', description: 'Sistem kullanımı eğitimi' },
-    { date: new Date('2024-12-25'), title: 'Yılbaşı Kapanışı', description: 'Tatil' },
-    { date: new Date('2025-01-05'), title: 'Platform Güncellemesi', description: 'Yeni arayüz yayında' },
-  ]
-
-  // Recent announcements
-  const announcements = [
-    {
-      date: '15 Aralık 2024',
-      title: 'Yeni AI Teşhis Motoru Duyurusu',
-      description: 'Gelişmiş yapay zeka algoritmaları ile daha hızlı teşhis imkanı.',
-      type: 'güncelleme',
-    },
-    {
-      date: '10 Aralık 2024',
-      title: 'Sistem Bakımı Tamamlandı',
-      description: 'Platform güvenlik güncellemeleri tamamlandı.',
-      type: 'bakım',
-    },
-    {
-      date: '5 Aralık 2024',
-      title: 'Mobil Uygulama Yayında',
-      description: 'iOS ve Android uygulamaları artık indirilebilir.',
-      type: 'yeni',
-    },
-  ]
-
   return (
     <div className="overflow-hidden">
       <SEO 
@@ -170,19 +113,16 @@ const Home = () => {
         />
         
         <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-            {/* Left Column - Main Content */}
-            <div className="lg:col-span-2">
+          <div className="text-center max-w-4xl mx-auto">
             <FadeIn delay={0.2}>
-                <div className="mb-8">
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight mb-4">
+              <div className="mb-8">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight mb-4">
                   Sağlık Hizmetlerini
                 </h1>
-                  <div className="flex justify-start items-start h-16 md:h-20">
+                <div className="flex justify-center items-center h-16 md:h-20">
                   <MorphingText 
                     texts={['Dönüştürüyoruz', 'Yeniliyoruz', 'İyileştiriyoruz', 'Geliştiriyoruz']}
-                      className="text-4xl md:text-5xl lg:text-6xl h-auto leading-none text-gray-900 dark:text-white mx-0 text-left w-auto"
-                      leftAligned={true}
+                    className="text-4xl md:text-5xl lg:text-6xl h-auto leading-none text-gray-900 dark:text-white mx-auto text-center w-auto"
                   />
                 </div>
               </div>
@@ -193,7 +133,7 @@ const Home = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.6 }}
-                  className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl leading-relaxed"
+                className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed"
               >
                 Yapay zeka destekli teşhis, gerçek zamanlı izleme ve hasta odaklı bakım ile 
                 sağlık hizmetlerinde yeni bir çağ başlatıyoruz.
@@ -205,7 +145,7 @@ const Home = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.6 }}
-                  className="flex flex-col sm:flex-row gap-4 mb-8"
+                className="flex flex-col sm:flex-row gap-4 justify-center"
               >
                 <MagneticButton className="group px-8 py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white rounded-full font-bold text-base shadow-xl shadow-purple-500/30 hover:shadow-purple-500/50 transition-all duration-300 transform hover:scale-105">
                   <span className="flex items-center gap-2">
@@ -223,144 +163,6 @@ const Home = () => {
                 </Button>
               </motion.div>
             </FadeIn>
-
-            {/* Career Card */}
-            <FadeIn delay={0.9}>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.9, duration: 0.6 }}
-                className="bg-gradient-to-br from-green-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-5 border border-green-200 dark:border-green-700 shadow-lg hover:shadow-xl transition-all cursor-pointer"
-                onClick={() => window.location.href = '/careers'}
-              >
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-blue-500 rounded-lg flex items-center justify-center">
-                    <Briefcase className="text-white" size={20} />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-bold text-lg text-gray-900 dark:text-white">
-                      Kariyer Fırsatları
-                    </h3>
-                    <p className="text-xs text-gray-600 dark:text-gray-400">
-                      6 açık pozisyon
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="p-3 bg-white dark:bg-gray-800 rounded-lg mb-3">
-                  <h4 className="font-bold text-sm text-gray-900 dark:text-white mb-2">
-                    {jobListings[0].title}
-                  </h4>
-                  <div className="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400">
-                    <div className="flex items-center gap-1">
-                      <MapPin size={12} />
-                      {jobListings[0].location}
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Clock size={12} />
-                      {jobListings[0].type}
-                    </div>
-                  </div>
-                </div>
-
-                <button
-                  onClick={() => window.location.href = '/careers'}
-                  className="w-full px-4 py-2.5 bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-lg font-semibold text-sm hover:from-green-600 hover:to-blue-600 transition-all flex items-center justify-center gap-2"
-                >
-                  Tüm İlanları Gör
-                  <ArrowRight size={16} />
-                </button>
-              </motion.div>
-            </FadeIn>
-            </div>
-
-            {/* Right Column - Cards */}
-            <div className="lg:col-span-1 space-y-4">
-              {/* Calendar Card */}
-              <FadeIn delay={0.3}>
-              <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  className="bg-white dark:bg-gray-800 rounded-xl p-5 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-all"
-                >
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
-                      <Activity className="text-white" size={20} />
-                    </div>
-                    <h3 className="font-bold text-lg text-gray-900 dark:text-white">
-                      Önemli Tarihler
-                    </h3>
-                  </div>
-                  <div className="space-y-2">
-                    {importantDates.slice(0, 3).map((item, index) => (
-                      <div
-                        key={index}
-                        className="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-                      >
-                        <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center text-white font-bold text-xs">
-                          {item.date.getDate()}
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <p className="font-semibold text-sm text-gray-900 dark:text-white truncate">
-                            {item.title}
-                          </p>
-                          <p className="text-xs text-gray-500 dark:text-gray-400">
-                            {item.date.toLocaleDateString('tr-TR', { month: 'short', day: 'numeric' })}
-                          </p>
-                        </div>
-                    </div>
-                ))}
-        </div>
-                </motion.div>
-              </FadeIn>
-
-              {/* Announcements Card */}
-              <FadeIn delay={0.4}>
-        <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-xl p-5 border border-purple-200 dark:border-purple-900 shadow-lg hover:shadow-xl transition-all"
-                >
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-gradient-to-br from-pink-500 to-purple-500 rounded-lg flex items-center justify-center">
-                      <Zap className="text-white" size={20} />
-                    </div>
-                    <h3 className="font-bold text-lg text-gray-900 dark:text-white">
-                      Son Duyurular
-                    </h3>
-                  </div>
-                  <div className="space-y-2">
-                    {announcements.slice(0, 3).map((announcement, index) => (
-                      <div
-                        key={index}
-                        className="p-2 bg-white dark:bg-gray-800 rounded-lg hover:shadow-md transition-all"
-                      >
-                        <div className="flex items-start justify-between mb-1">
-                          <span className={`px-2 py-0.5 rounded-full text-xs font-semibold ${
-                            announcement.type === 'yeni' ? 'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300' :
-                            announcement.type === 'güncelleme' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300' :
-                            'bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300'
-                          }`}>
-                            {announcement.type === 'yeni' ? 'Yeni' :
-                             announcement.type === 'güncelleme' ? 'Güncelleme' : 'Bakım'}
-            </span>
-                        </div>
-                        <h4 className="font-semibold text-sm text-gray-900 dark:text-white line-clamp-2">
-                          {announcement.title}
-                        </h4>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                          {announcement.date}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-              </motion.div>
-            </FadeIn>
-            </div>
           </div>
         </div>
       </section>

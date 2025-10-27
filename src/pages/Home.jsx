@@ -10,6 +10,7 @@ import HoverCard from '../components/animations/HoverCard'
 import MagneticButton from '../components/animations/MagneticButton'
 import { AnimatedCard } from '../components/animations/AnimatedCard'
 import { MorphingText } from '../components/ui/MorphingText'
+import { WobbleCard } from '../components/ui/wobble-card'
 import SEO from '../components/SEO'
 import { OrganizationSchema, WebsiteSchema } from '../components/StructuredData'
 import Input from '../components/ui/Input'
@@ -194,7 +195,7 @@ const Home = () => {
             </div>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
@@ -202,24 +203,23 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
-                whileHover={{ y: -8, scale: 1.02 }}
-                className="group"
+                className="h-full"
               >
-                <HoverCard>
-                  <Card className="h-full p-6 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-lg hover:shadow-xl transition-all duration-300">
+                <WobbleCard containerClassName="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 h-full min-h-[280px]">
+                  <div className="flex flex-col h-full">
                     <motion.div
                       whileHover={{ scale: 1.1, rotate: [0, -10, 10, 0] }}
                       transition={{ duration: 0.3 }}
-                      className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-4 shadow-md group-hover:shadow-lg transition-shadow`}
+                      className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-4 shadow-lg`}
                     >
                       <feature.icon className="text-white" size={32} />
                     </motion.div>
                     <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">{feature.title}</h3>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed flex-grow">
                       {feature.description}
                     </p>
-                  </Card>
-                </HoverCard>
+                  </div>
+                </WobbleCard>
               </motion.div>
             ))}
           </div>

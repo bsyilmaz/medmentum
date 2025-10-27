@@ -23,6 +23,7 @@ const Header = () => {
     { name: 'Ürünler', path: '/products' },
     { name: 'Blog', path: '/blog' },
     { name: 'Ekip', path: '/team' },
+    { name: 'Kariyer', path: '/careers' },
     { name: 'İletişim', path: '/contact' },
   ]
 

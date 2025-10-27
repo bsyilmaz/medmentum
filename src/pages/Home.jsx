@@ -231,7 +231,7 @@ const Home = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.9, duration: 0.6 }}
                 className="bg-gradient-to-br from-green-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-5 border border-green-200 dark:border-green-700 shadow-lg hover:shadow-xl transition-all cursor-pointer"
-                onClick={() => window.location.href = '/team'}
+                onClick={() => window.location.href = '/careers'}
               >
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-blue-500 rounded-lg flex items-center justify-center">
@@ -242,7 +242,7 @@ const Home = () => {
                       Kariyer Fırsatları
                     </h3>
                     <p className="text-xs text-gray-600 dark:text-gray-400">
-                      3 açık pozisyon
+                      6 açık pozisyon
                     </p>
                   </div>
                 </div>
@@ -264,7 +264,7 @@ const Home = () => {
                 </div>
 
                 <button
-                  onClick={() => window.location.href = '/team'}
+                  onClick={() => window.location.href = '/careers'}
                   className="w-full px-4 py-2.5 bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-lg font-semibold text-sm hover:from-green-600 hover:to-blue-600 transition-all flex items-center justify-center gap-2"
                 >
                   Tüm İlanları Gör

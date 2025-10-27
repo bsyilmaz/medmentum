@@ -8,6 +8,7 @@ import Button from '../components/ui/Button'
 import FadeIn from '../components/animations/FadeIn'
 import SEO from '../components/SEO'
 import { BreadcrumbSchema } from '../components/StructuredData'
+import Particles from '../components/animations/Particles'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -60,7 +61,26 @@ const Contact = () => {
   ]
 
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen py-20 relative">
+      <div className="fixed inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-purple-950 -z-10">
+        <Particles count={50} />
+        <motion.div
+          animate={{
+            scale: [1, 1.1, 1],
+            rotate: [0, 90, 0],
+          }}
+          transition={{ duration: 20, repeat: Infinity }}
+          className="absolute top-20 left-20 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, -90, 0],
+          }}
+          transition={{ duration: 25, repeat: Infinity }}
+          className="absolute bottom-20 right-20 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30"
+        />
+      </div>
       <SEO 
         title="İletişim | Bize Ulaşın - Medmentum"
         description="Medmentum ile iletişime geçin. Sorularınız, önerileriniz veya işbirliği teklifleriniz için bize yazın. İstanbul, Maslak ofisimizden 7/24 destek."

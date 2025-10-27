@@ -6,6 +6,7 @@ import SEO from '../components/SEO'
 import { BreadcrumbSchema } from '../components/StructuredData'
 import { HoverBorderGradient } from '../components/ui/HoverBorderGradient'
 import { Terminal, TypingAnimation, AnimatedSpan } from '../components/ui/Terminal'
+import Particles from '../components/animations/Particles'
 
 const Products = () => {
   const { scrollYProgress } = useScroll()
@@ -137,7 +138,26 @@ const Products = () => {
   ]
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+      <div className="fixed inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-purple-950 -z-10">
+        <Particles count={50} />
+        <motion.div
+          animate={{
+            scale: [1, 1.1, 1],
+            rotate: [0, 90, 0],
+          }}
+          transition={{ duration: 20, repeat: Infinity }}
+          className="absolute top-20 left-20 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, -90, 0],
+          }}
+          transition={{ duration: 25, repeat: Infinity }}
+          className="absolute bottom-20 right-20 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30"
+        />
+      </div>
       <SEO 
         title="Ürünler ve Hizmetler | AI Teşhis, Telemedicine, Sağlık Sistemleri"
         description="AI destekli teşhis platformu, telemedicine suite, elektronik sağlık kayıtları. Modern sağlık çözümleri için Medmentum ürünlerini keşfedin."

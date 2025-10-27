@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, Activity, Brain, Heart, Shield, Users, Zap, X, Send, Building2, Briefcase } from 'lucide-react'
 import Button from '../components/ui/Button'
@@ -211,7 +211,7 @@ const Home = () => {
                     transition={{ duration: 0.3 }}
                     className={`w-20 h-20 rounded-3xl bg-gradient-to-br ${features[0].color} flex items-center justify-center shadow-xl flex-shrink-0`}
                   >
-                    <features[0].icon className="text-white" size={40} />
+                    {React.createElement(features[0].icon, { className: "text-white", size: 40 })}
                   </motion.div>
                   <div className="flex-1 text-center md:text-left">
                     <h3 className="text-3xl font-bold mb-3 text-white">{features[0].title}</h3>

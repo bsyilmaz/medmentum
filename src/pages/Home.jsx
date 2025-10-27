@@ -195,33 +195,63 @@ const Home = () => {
             </div>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-            {features.slice(0, 4).map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                className="h-full"
-              >
-                <WobbleCard containerClassName="bg-gradient-to-br from-gray-800 to-gray-950 dark:from-gray-800 dark:to-gray-900 h-full min-h-[300px]">
-                  <div className="flex flex-col h-full justify-center">
-                    <motion.div
-                      whileHover={{ scale: 1.1, rotate: [0, -10, 10, 0] }}
-                      transition={{ duration: 0.3 }}
-                      className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-4 shadow-lg`}
-                    >
-                      <feature.icon className="text-white" size={32} />
-                    </motion.div>
-                    <h3 className="text-2xl font-bold mb-3 text-white">{feature.title}</h3>
-                    <p className="text-gray-300 leading-relaxed">
-                      {feature.description}
+          <div className="max-w-6xl mx-auto">
+            {/* İlk kart - Tam genişlik */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0, duration: 0.6 }}
+              className="mb-6"
+            >
+              <WobbleCard containerClassName="bg-gradient-to-br from-gray-800 via-gray-900 to-gray-950 min-h-[250px]">
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-6 h-full">
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotate: [0, -10, 10, 0] }}
+                    transition={{ duration: 0.3 }}
+                    className={`w-20 h-20 rounded-3xl bg-gradient-to-br ${features[0].color} flex items-center justify-center shadow-xl flex-shrink-0`}
+                  >
+                    <features[0].icon className="text-white" size={40} />
+                  </motion.div>
+                  <div className="flex-1 text-center md:text-left">
+                    <h3 className="text-3xl font-bold mb-3 text-white">{features[0].title}</h3>
+                    <p className="text-gray-300 leading-relaxed text-lg">
+                      {features[0].description}
                     </p>
                   </div>
-                </WobbleCard>
-              </motion.div>
-            ))}
+                </div>
+              </WobbleCard>
+            </motion.div>
+            
+            {/* Alt kısım - 2 kart yan yana */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {features.slice(1, 3).map((feature, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: (index + 1) * 0.1, duration: 0.6 }}
+                  className="h-full"
+                >
+                  <WobbleCard containerClassName="bg-gradient-to-br from-gray-800 to-gray-950 h-full min-h-[280px]">
+                    <div className="flex flex-col h-full justify-center">
+                      <motion.div
+                        whileHover={{ scale: 1.1, rotate: [0, -10, 10, 0] }}
+                        transition={{ duration: 0.3 }}
+                        className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-4 shadow-lg`}
+                      >
+                        <feature.icon className="text-white" size={32} />
+                      </motion.div>
+                      <h3 className="text-2xl font-bold mb-3 text-white">{feature.title}</h3>
+                      <p className="text-gray-300 leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </WobbleCard>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

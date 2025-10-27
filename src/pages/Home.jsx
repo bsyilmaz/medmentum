@@ -195,8 +195,8 @@ const Home = () => {
             </div>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-            {features.map((feature, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+            {features.slice(0, 4).map((feature, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
@@ -205,8 +205,8 @@ const Home = () => {
                 transition={{ delay: index * 0.1, duration: 0.6 }}
                 className="h-full"
               >
-                <WobbleCard containerClassName="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 h-full min-h-[280px]">
-                  <div className="flex flex-col h-full">
+                <WobbleCard containerClassName="bg-gradient-to-br from-gray-800 to-gray-950 dark:from-gray-800 dark:to-gray-900 h-full min-h-[300px]">
+                  <div className="flex flex-col h-full justify-center">
                     <motion.div
                       whileHover={{ scale: 1.1, rotate: [0, -10, 10, 0] }}
                       transition={{ duration: 0.3 }}
@@ -214,8 +214,8 @@ const Home = () => {
                     >
                       <feature.icon className="text-white" size={32} />
                     </motion.div>
-                    <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">{feature.title}</h3>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed flex-grow">
+                    <h3 className="text-2xl font-bold mb-3 text-white">{feature.title}</h3>
+                    <p className="text-gray-300 leading-relaxed">
                       {feature.description}
                     </p>
                   </div>

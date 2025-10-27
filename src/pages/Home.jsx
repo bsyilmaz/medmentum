@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, Brain, Heart, Shield, Users, Zap, X, Send, Building2 } from 'lucide-react'
+import { ArrowRight, Activity, Brain, Heart, Shield, Users, Zap, X, Send, Building2 } from 'lucide-react'
 import Button from '../components/ui/Button'
 import Card from '../components/ui/Card'
 import FadeIn from '../components/animations/FadeIn'

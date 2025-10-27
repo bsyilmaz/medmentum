@@ -172,7 +172,7 @@ const Home = () => {
       <section className="py-32 bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-950 dark:to-gray-900">
         <div className="container mx-auto px-6">
           <FadeIn>
-            <div className="text-center mb-24">
+            <div className="text-center mb-12">
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -195,26 +195,24 @@ const Home = () => {
             </div>
           </FadeIn>
 
-          <ScrollStack
-            useWindowScroll={true}
-            itemDistance={80}
-            itemScale={0.05}
-            itemStackDistance={40}
-            stackPosition="30%"
-            scaleEndPosition="20%"
-            baseScale={0.90}
-            rotationAmount={0}
-            blurAmount={2}
-            className="max-w-4xl mx-auto"
-          >
-            {features.map((feature, index) => (
-              <ScrollStackItem key={index}>
-                <Card className="h-full p-8 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-xl transition-all duration-500">
-                  <div className="flex flex-col items-center text-center">
+          <div className="max-w-4xl mx-auto" style={{ height: '800px' }}>
+            <ScrollStack
+              itemDistance={150}
+              itemScale={0.05}
+              itemStackDistance={40}
+              stackPosition="20%"
+              scaleEndPosition="10%"
+              baseScale={0.85}
+              rotationAmount={2}
+              blurAmount={3}
+            >
+              {features.map((feature, index) => (
+                <ScrollStackItem key={index}>
+                  <div className="flex flex-col items-center text-center bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
                     <motion.div
                       whileHover={{ scale: 1.1, rotate: [0, -10, 10, 0] }}
                       transition={{ duration: 0.5 }}
-                      className={`w-20 h-20 rounded-3xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-8 shadow-lg`}
+                      className={`w-20 h-20 rounded-3xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-6 shadow-lg`}
                     >
                       <feature.icon className="text-white" size={40} />
                     </motion.div>
@@ -223,10 +221,10 @@ const Home = () => {
                       {feature.description}
                     </p>
                   </div>
-                </Card>
-              </ScrollStackItem>
-            ))}
-          </ScrollStack>
+                </ScrollStackItem>
+              ))}
+            </ScrollStack>
+          </div>
         </div>
       </section>
 

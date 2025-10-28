@@ -39,12 +39,47 @@ const Header = () => {
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center">
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="text-2xl font-bold text-gradient"
+              whileHover={{ 
+                scale: 1.1,
+                transition: { duration: 0.3 }
+              }}
+              whileTap={{ scale: 0.95 }}
+              animate={{
+                opacity: [0.8, 1, 0.8],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="relative"
             >
-              Medmentum
+              {/* Glow effect - subtle animasyon */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-10 blur-xl"
+                animate={{
+                  opacity: [0.05, 0.15, 0.05],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                whileHover={{ 
+                  opacity: 0.25,
+                  scale: 1.1,
+                  transition: { duration: 0.3 }
+                }}
+              />
+              
+              {/* Logo image with maximum size while preserving navbar height */}
+              <img 
+                src="/images/products/medmentum.png" 
+                alt="Medmentum" 
+                className="h-12 w-auto object-contain"
+              />
             </motion.div>
           </Link>
 
@@ -128,4 +163,3 @@ const Header = () => {
 }
 
 export default Header
-

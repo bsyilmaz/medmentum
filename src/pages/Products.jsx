@@ -6,7 +6,6 @@ import SEO from '../components/SEO'
 import { BreadcrumbSchema } from '../components/StructuredData'
 import { HoverBorderGradient } from '../components/ui/HoverBorderGradient'
 import { Terminal, TypingAnimation, AnimatedSpan } from '../components/ui/Terminal'
-import Particles from '../components/animations/Particles'
 
 const Products = () => {
   const { scrollYProgress } = useScroll()
@@ -139,25 +138,6 @@ const Products = () => {
 
   return (
     <div className="min-h-screen relative">
-      <div className="fixed inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-purple-950 -z-10">
-        <Particles count={50} />
-        <motion.div
-          animate={{
-            scale: [1, 1.1, 1],
-            rotate: [0, 90, 0],
-          }}
-          transition={{ duration: 20, repeat: Infinity }}
-          className="absolute top-20 left-20 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30"
-        />
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, -90, 0],
-          }}
-          transition={{ duration: 25, repeat: Infinity }}
-          className="absolute bottom-20 right-20 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30"
-        />
-      </div>
       <SEO 
         title="Ürünler ve Hizmetler | AI Teşhis, Telemedicine, Sağlık Sistemleri"
         description="AI destekli teşhis platformu, telemedicine suite, elektronik sağlık kayıtları. Modern sağlık çözümleri için Medmentum ürünlerini keşfedin."
@@ -180,12 +160,7 @@ const Products = () => {
             key={product.id}
             className="relative min-h-screen flex items-center py-20 overflow-hidden"
           >
-            {/* Background */}
-            <div className={`absolute inset-0 bg-gradient-to-br ${
-              index === 0 ? 'from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950' :
-              index === 1 ? 'from-green-50 to-teal-50 dark:from-green-950 dark:to-teal-950' :
-              'from-indigo-50 to-pink-50 dark:from-indigo-950 dark:to-pink-950'
-            }`} />
+            {/* Background removed - using Layout background */}
 
             <div className="container mx-auto px-6 relative z-10">
               {index === 0 ? (
@@ -399,8 +374,7 @@ const Products = () => {
       })}
 
       {/* CTA Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-purple-600 to-pink-600" />
+      <section className="relative py-20 overflow-hidden bg-gradient-to-br from-primary-600 via-purple-600 to-pink-600">
         
         <div className="container mx-auto px-6 relative z-10 text-center">
           <motion.div

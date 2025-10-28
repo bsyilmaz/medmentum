@@ -6,7 +6,6 @@ import Card from '../../components/ui/Card'
 import Input from '../../components/ui/Input'
 import Button from '../../components/ui/Button'
 import { useAuth } from '../../contexts/AuthContext'
-import Particles from '../../components/animations/Particles'
 
 const Login = () => {
   const [email, setEmail] = useState('')
@@ -34,7 +33,6 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      <Particles count={30} />
       
       <div className="container mx-auto px-6 relative z-10">
         <motion.div

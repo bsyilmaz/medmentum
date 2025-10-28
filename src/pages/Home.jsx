@@ -1,16 +1,11 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, Activity, Brain, Heart, Shield, Users, Zap, X, Send, Building2, Briefcase } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { ArrowRight, X, Send, Building2, Briefcase, Shield, Zap, Cloud, Database, CheckCircle, Plug, Server } from 'lucide-react'
 import Button from '../components/ui/Button'
-import Card from '../components/ui/Card'
 import FadeIn from '../components/animations/FadeIn'
-import Particles from '../components/animations/Particles'
-import Sparkles from '../components/animations/Sparkles'
-import HoverCard from '../components/animations/HoverCard'
 import MagneticButton from '../components/animations/MagneticButton'
-import { AnimatedCard } from '../components/animations/AnimatedCard'
 import { MorphingText } from '../components/ui/MorphingText'
-import { WobbleCard } from '../components/ui/wobble-card'
 import SEO from '../components/SEO'
 import { OrganizationSchema, WebsiteSchema } from '../components/StructuredData'
 import Input from '../components/ui/Input'
@@ -41,44 +36,7 @@ const Home = () => {
     })
   }
 
-  const features = [
-    {
-      icon: Brain,
-      title: 'AI-Powered Diagnostics',
-      description: 'Yapay zeka destekli teşhis sistemleri ile hızlı ve doğru sonuçlar',
-      color: 'from-primary-500 to-primary-600',
-    },
-    {
-      icon: Activity,
-      title: 'Real-Time Monitoring',
-      description: 'Hasta verilerini gerçek zamanlı olarak izleyin ve analiz edin',
-      color: 'from-secondary-500 to-secondary-600',
-    },
-    {
-      icon: Shield,
-      title: 'Secure & Compliant',
-      description: 'HIPAA ve KVKK uyumlu, güvenli veri yönetimi',
-      color: 'from-accent-500 to-accent-600',
-    },
-    {
-      icon: Heart,
-      title: 'Patient Care',
-      description: 'Hasta odaklı yaklaşım ile en iyi bakım deneyimi',
-      color: 'from-pink-500 to-pink-600',
-    },
-    {
-      icon: Users,
-      title: 'Team Collaboration',
-      description: 'Ekip üyeleri arasında sorunsuz iletişim ve işbirliği',
-      color: 'from-indigo-500 to-indigo-600',
-    },
-    {
-      icon: Zap,
-      title: 'Fast & Efficient',
-      description: 'Hızlı ve verimli iş akışları ile zaman tasarrufu',
-      color: 'from-yellow-500 to-yellow-600',
-    },
-  ]
+  
 
   return (
     <div className="overflow-hidden">
@@ -92,26 +50,7 @@ const Home = () => {
       <OrganizationSchema />
       <WebsiteSchema />
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-purple-950">
-        <Particles count={50} />
-        
-        {/* Animated background blobs */}
-        <motion.div
-          animate={{
-            scale: [1, 1.1, 1],
-            rotate: [0, 90, 0],
-          }}
-          transition={{ duration: 20, repeat: Infinity }}
-          className="absolute top-20 left-20 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30"
-        />
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, -90, 0],
-          }}
-          transition={{ duration: 25, repeat: Infinity }}
-          className="absolute bottom-20 right-20 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30"
-        />
+      <section className="relative py-20 overflow-hidden">
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
@@ -148,20 +87,24 @@ const Home = () => {
                 transition={{ delay: 0.6, duration: 0.6 }}
                 className="flex flex-col sm:flex-row gap-4 justify-center"
               >
-                <MagneticButton className="group px-8 py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white rounded-full font-bold text-base shadow-xl shadow-purple-500/30 hover:shadow-purple-500/50 transition-all duration-300 transform hover:scale-105">
-                  <span className="flex items-center gap-2">
-                    Hemen Başlayın
-                    <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
-                  </span>
-                </MagneticButton>
                 <Button 
                   size="lg" 
-                  variant="outline" 
-                  className="px-8 py-4 text-base font-semibold border-2 rounded-full hover:scale-105 transition-transform"
-                  onClick={() => setIsQuoteModalOpen(true)}
+                  className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white rounded-full font-bold text-base shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 transition-all duration-300"
                 >
-                  Teklif Al
+                  <span className="flex items-center gap-2">
+                    Hemen Başlayın
+                    <ArrowRight size={18} />
+                  </span>
                 </Button>
+                <Link to="/contact">
+                  <Button 
+                    size="lg" 
+                    variant="outline" 
+                    className="px-8 py-4 text-base font-semibold border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-full transition-all duration-300"
+                  >
+                    Teklif Al
+                  </Button>
+                </Link>
               </motion.div>
             </FadeIn>
           </div>
@@ -170,13 +113,13 @@ const Home = () => {
         {/* Features Section - Neden Medmentum */}
         <div className="container mx-auto px-6 relative z-10 py-32">
           <FadeIn>
-            <div className="text-center mb-8">
+            <div className="text-center mb-16">
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="text-3xl md:text-4xl font-extrabold mb-4 text-gray-900 dark:text-white"
+                className="text-4xl md:text-5xl font-extrabold mb-6 text-gray-900 dark:text-white"
               >
                 Neden <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">Medmentum?</span>
               </motion.h2>
@@ -185,109 +128,182 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2, duration: 0.6 }}
-                className="text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed mb-12"
+                className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed"
               >
-                Sağlık profesyonellerinin ihtiyaçları için özel olarak tasarlanmış 
-                güçlü özellikler ve yenilikçi çözümler
+                Sağlık teknolojisinde devrim yaratan özellikler ve yenilikçi çözümler
               </motion.p>
             </div>
           </FadeIn>
 
-          <div className="max-w-6xl mx-auto">
-            {/* İlk kart - Tam genişlik */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0, duration: 0.6 }}
-              className="mb-6"
-            >
-              <WobbleCard containerClassName="bg-gradient-to-br from-gray-800 via-gray-900 to-gray-950 min-h-[250px]">
-                <div className="flex flex-col md:flex-row items-center md:items-start gap-6 h-full">
-                  <motion.div
-                    whileHover={{ scale: 1.1, rotate: [0, -10, 10, 0] }}
-                    transition={{ duration: 0.3 }}
-                    className={`w-20 h-20 rounded-3xl bg-gradient-to-br ${features[0].color} flex items-center justify-center shadow-xl flex-shrink-0`}
-                  >
-                    {React.createElement(features[0].icon, { className: "text-white", size: 40 })}
-                  </motion.div>
-                  <div className="flex-1 text-center md:text-left">
-                    <h3 className="text-3xl font-bold mb-3 text-white">{features[0].title}</h3>
-                    <p className="text-gray-300 leading-relaxed text-lg">
-                      {features[0].description}
-                    </p>
-                  </div>
-                </div>
-              </WobbleCard>
-            </motion.div>
-            
-            {/* Alt kısım - 2 kart yan yana */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {features.slice(1, 3).map((feature, index) => (
+          <div className="max-w-7xl mx-auto">
+            {/* Ana özellikler - Grid layout */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+              {[
+                {
+                  title: "AI Destekli Teşhis",
+                  description: "Yapay zeka algoritmaları ile %95+ doğruluk oranında hızlı teşhis",
+                  gradient: "from-blue-500 to-cyan-500",
+                  stat: "95%",
+                  statLabel: "Doğruluk"
+                },
+                {
+                  title: "Gerçek Zamanlı İzleme",
+                  description: "Hasta verilerini anlık takip edin, kritik durumları erken tespit edin",
+                  gradient: "from-purple-500 to-pink-500",
+                  stat: "24/7",
+                  statLabel: "İzleme"
+                },
+                {
+                  title: "Güvenli Veri Yönetimi",
+                  description: "KVKK ve HIPAA uyumlu, end-to-end şifreleme ile maksimum güvenlik",
+                  gradient: "from-green-500 to-emerald-500",
+                  stat: "100%",
+                  statLabel: "Güvenli"
+                }
+              ].map((feature, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: (index + 1) * 0.1, duration: 0.6 }}
-                  className="h-full"
+                  transition={{ delay: index * 0.1, duration: 0.6 }}
+                  className="group relative"
                 >
-                  <WobbleCard containerClassName="bg-gradient-to-br from-gray-800 to-gray-950 h-full min-h-[280px]">
-                    <div className="flex flex-col h-full justify-center">
-                      <motion.div
-                        whileHover={{ scale: 1.1, rotate: [0, -10, 10, 0] }}
-                        transition={{ duration: 0.3 }}
-                        className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-4 shadow-lg`}
-                      >
-                        <feature.icon className="text-white" size={32} />
-                      </motion.div>
-                      <h3 className="text-2xl font-bold mb-3 text-white">{feature.title}</h3>
-                      <p className="text-gray-300 leading-relaxed">
-                        {feature.description}
-                      </p>
+                  <div className="relative p-8 rounded-3xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 hover:border-transparent transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-blue-500/10">
+                    {/* Gradient overlay */}
+                    <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}></div>
+                    
+                    {/* İstatistik badge */}
+                    <div className={`inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r ${feature.gradient} text-white text-sm font-bold mb-6`}>
+                      <span className="text-2xl font-black mr-2">{feature.stat}</span>
+                      <span>{feature.statLabel}</span>
                     </div>
-                  </WobbleCard>
+                    
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text transition-all duration-300">
+                      {feature.title}
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                      {feature.description}
+                    </p>
+                    
+                    {/* Hover effect line */}
+                    <div className={`absolute bottom-0 left-8 right-8 h-1 bg-gradient-to-r ${feature.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`}></div>
+                  </div>
                 </motion.div>
               ))}
+            </div>
+
+            {/* Alt özellikler - Modern card layout */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Entegrasyon & Uyumluluk */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="relative group"
+              >
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
+                <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-2xl p-8 border border-gray-200/50 dark:border-gray-700/50">
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mr-4">
+                      <Plug className="text-white" size={24} />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                      Entegrasyon & Uyumluluk
+                    </h3>
+                  </div>
+                  <div className="space-y-4">
+                    <motion.div 
+                      className="flex items-center space-x-3"
+                      whileHover={{ x: 5 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
+                        <Database className="text-blue-600 dark:text-blue-400" size={16} />
+                      </div>
+                      <span className="text-gray-700 dark:text-gray-300 font-medium">HL7/FHIR standartları</span>
+                    </motion.div>
+                    <motion.div 
+                      className="flex items-center space-x-3"
+                      whileHover={{ x: 5 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <div className="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center">
+                        <CheckCircle className="text-green-600 dark:text-green-400" size={16} />
+                      </div>
+                      <span className="text-gray-700 dark:text-gray-300 font-medium">Mevcut sistemlerle uyumlu</span>
+                    </motion.div>
+                    <motion.div 
+                      className="flex items-center space-x-3"
+                      whileHover={{ x: 5 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <div className="w-8 h-8 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center">
+                        <Zap className="text-purple-600 dark:text-purple-400" size={16} />
+                      </div>
+                      <span className="text-gray-700 dark:text-gray-300 font-medium">API-first yaklaşım</span>
+                    </motion.div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Performans & Ölçeklenebilirlik */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="relative group"
+              >
+                <div className="absolute -inset-1 bg-gradient-to-r from-green-500 to-teal-500 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
+                <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-2xl p-8 border border-gray-200/50 dark:border-gray-700/50">
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-500 rounded-xl flex items-center justify-center mr-4">
+                      <Server className="text-white" size={24} />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                      Performans & Ölçeklenebilirlik
+                    </h3>
+                  </div>
+                  <div className="space-y-4">
+                    <motion.div 
+                      className="flex items-center space-x-3"
+                      whileHover={{ x: 5 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <div className="w-8 h-8 bg-yellow-100 dark:bg-yellow-900/30 rounded-lg flex items-center justify-center">
+                        <Cloud className="text-yellow-600 dark:text-yellow-400" size={16} />
+                      </div>
+                      <span className="text-gray-700 dark:text-gray-300 font-medium">Bulut tabanlı altyapı</span>
+                    </motion.div>
+                    <motion.div 
+                      className="flex items-center space-x-3"
+                      whileHover={{ x: 5 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <div className="w-8 h-8 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center">
+                        <Shield className="text-red-600 dark:text-red-400" size={16} />
+                      </div>
+                      <span className="text-gray-700 dark:text-gray-300 font-medium">99.9% uptime garantisi</span>
+                    </motion.div>
+                    <motion.div 
+                      className="flex items-center space-x-3"
+                      whileHover={{ x: 5 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <div className="w-8 h-8 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg flex items-center justify-center">
+                        <Zap className="text-indigo-600 dark:text-indigo-400" size={16} />
+                      </div>
+                      <span className="text-gray-700 dark:text-gray-300 font-medium">Otomatik ölçeklendirme</span>
+                    </motion.div>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>
 
-        {/* CTA Section - Hazır mısınız */}
-        <div className="container mx-auto px-6 relative z-10 py-32">
-          <FadeIn>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="max-w-5xl mx-auto text-center bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 rounded-3xl p-12 md:p-16 shadow-2xl"
-            >
-              <motion.h2
-                animate={{ scale: [1, 1.03, 1] }}
-                transition={{ duration: 4, repeat: Infinity }}
-                className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-white"
-              >
-                Hazır mısınız?
-              </motion.h2>
-              <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto">
-                Sağlık hizmetlerinizi bir üst seviyeye taşıyın. 
-                Ücretsiz denemeye hemen başlayın.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <MagneticButton className="group px-8 py-4 bg-white text-purple-600 rounded-full font-bold text-lg shadow-xl shadow-white/20 hover:shadow-white/30 hover:scale-105 transition-all duration-300">
-                  <span className="flex items-center gap-2">
-                    Ücretsiz Başlayın
-                    <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
-                  </span>
-                </MagneticButton>
-                <Button size="lg" variant="outline" className="px-8 py-4 text-lg font-semibold border-2 border-white/30 text-white rounded-full hover:bg-white/10 transition-all backdrop-blur-sm">
-                  İletişime Geçin
-                </Button>
-              </div>
-            </motion.div>
-          </FadeIn>
-        </div>
       </section>
 
       {/* Quote Modal */}

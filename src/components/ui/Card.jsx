@@ -18,7 +18,7 @@ const Card = ({
         ${baseClasses}
         ${className}
       `}
-      whileHover={hover ? { y: -8, scale: 1.02 } : {}}
+      whileHover={hover ? { y: -4 } : {}}
       transition={{ duration: 0.3 }}
       {...props}
     >

@@ -15,6 +15,7 @@ import BlogDetail from './pages/BlogDetail'
 import Team from './pages/Team'
 import Contact from './pages/Contact'
 import Careers from './pages/Careers'
+import CareerDetail from './pages/CareerDetail'
 
 // Admin pages
 import Login from './pages/admin/Login'
@@ -39,6 +40,7 @@ function App() {
           <Route path="/team" element={<Layout><Team /></Layout>} />
           <Route path="/contact" element={<Layout><Contact /></Layout>} />
           <Route path="/careers" element={<Layout><Careers /></Layout>} />
+          <Route path="/careers/:id" element={<Layout><CareerDetail /></Layout>} />
 
           {/* Admin routes without main layout */}
           <Route path="/admin/login" element={<Login />} />

@@ -6,7 +6,6 @@ import { HoverBorderGradient } from '../components/ui/HoverBorderGradient'
 import HoverCard from '../components/animations/HoverCard'
 import MagneticButton from '../components/animations/MagneticButton'
 import { Marquee } from '../components/ui/Marquee'
-import Particles from '../components/animations/Particles'
 
 const MakoDetail = () => {
   const updates = [
@@ -148,25 +147,6 @@ const MakoDetail = () => {
 
   return (
     <div className="min-h-screen relative">
-      <div className="fixed inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-purple-950 -z-10">
-        <Particles count={50} />
-        <motion.div
-          animate={{
-            scale: [1, 1.1, 1],
-            rotate: [0, 90, 0],
-          }}
-          transition={{ duration: 20, repeat: Infinity }}
-          className="absolute top-20 left-20 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30"
-        />
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, -90, 0],
-          }}
-          transition={{ duration: 25, repeat: Infinity }}
-          className="absolute bottom-20 right-20 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30"
-        />
-      </div>
       <SEO 
         title="MAKO Medical Assistant Kiosk | Akıllı Sağlık Asistanı"
         description="MAKO Medical Assistant Kiosk - Yapay zeka destekli self-servis hasta kabul ve yönlendirme sistemi. Yüz tanıma, sesli asistan ve akıllı sıra yönetimi."
@@ -200,14 +180,13 @@ const MakoDetail = () => {
               <span className="text-sm font-semibold">Tüm Ürünlere Dön</span>
             </Link>
 
-            {/* Hero Content with Image */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* Left: Text Content */}
+            {/* Hero Content */}
+            <div className="max-w-4xl mx-auto">
               <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="space-y-6"
+                className="space-y-6 text-center"
               >
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full text-sm font-semibold text-blue-700 dark:text-blue-300">
                   <Star className="w-4 h-4" />
@@ -231,7 +210,7 @@ const MakoDetail = () => {
                 </p>
 
                 {/* Quick Stats */}
-                <div className="flex flex-wrap gap-4 pt-4">
+                <div className="flex flex-wrap justify-center gap-4 pt-4">
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-xl shadow-sm"
@@ -255,62 +234,7 @@ const MakoDetail = () => {
                   </motion.div>
                 </div>
               </motion.div>
-
-              {/* Right: Product Website/Demo */}
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="relative w-full"
-              >
-                <iframe
-                  src="https://makoaii.netlify.app/"
-                  className="w-full h-[700px] md:h-[800px] lg:h-[900px] rounded-3xl shadow-2xl border-4 border-gray-100 dark:border-gray-700 bg-white"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  title="MAKO Medical Assistant Demo"
-                  style={{ pointerEvents: 'auto' }}
-                />
-              </motion.div>
             </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-16 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950">
-        <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6"
-          >
-            {product.stats.map((stat, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="text-center p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700"
-              >
-                <motion.div
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 + 0.2, type: "spring" }}
-                  className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${product.color} bg-clip-text text-transparent mb-3`}
-                >
-                  {stat.value}
-                </motion.div>
-                <div className="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
-                  {stat.label}
-                </div>
-              </motion.div>
-            ))}
           </motion.div>
         </div>
       </section>
@@ -325,26 +249,6 @@ const MakoDetail = () => {
             viewport={{ once: true }}
             className="max-w-7xl mx-auto"
           >
-            <div className="text-center mb-12">
-              <motion.h2
-                initial={{ opacity: 0, y: -20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white"
-              >
-                Özellikler
-              </motion.h2>
-              <motion.p
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="text-xl text-gray-600 dark:text-gray-400"
-              >
-                MAKO ile hasta deneyimini iyileştirin
-              </motion.p>
-            </div>
-
             <Marquee className="[--duration:40s]">
               {product.features.map((feature, i) => (
                 <motion.div

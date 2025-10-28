@@ -7,7 +7,6 @@ import FadeIn from '../components/animations/FadeIn'
 import SEO from '../components/SEO'
 import { ArticleSchema, BreadcrumbSchema } from '../components/StructuredData'
 import { db } from '../lib/supabase'
-import Particles from '../components/animations/Particles'
 
 const BlogDetail = () => {
   const { id } = useParams()
@@ -96,7 +95,6 @@ const BlogDetail = () => {
 
   return (
     <div className="min-h-screen pt-20 relative overflow-hidden">
-      <Particles className="absolute inset-0 opacity-20" />
       
       <SEO 
         title={blog.title}

@@ -3,63 +3,35 @@ import ProfileCard from '../components/ui/ProfileCard'
 import FadeIn from '../components/animations/FadeIn'
 import SEO from '../components/SEO'
 import { BreadcrumbSchema } from '../components/StructuredData'
-import Particles from '../components/animations/Particles'
 
 const Team = () => {
   const team = [
     {
-      name: 'Dr. Ayşe Yılmaz',
-      role: 'CEO & Kurucu',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400',
-      bio: 'Tıp doktoru ve teknoloji girişimcisi. 15 yıllık sağlık sektörü deneyimi.',
+      name: 'Berkay Bazkurt',
+      role: 'Ekip Üyesi',
+      image: '/images/products/berkayvesika11.png',
+      bio: 'Sağlık teknolojileri alanında vizyoner lider. AI destekli tıbbi çözümler geliştiriyor.',
       linkedin: '#',
       twitter: '#',
-      email: 'ayse@medmentum.com',
+      email: 'berkay@medmentum.com',
     },
     {
-      name: 'Mehmet Demir',
-      role: 'CTO',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400',
-      bio: 'Yazılım mimarı ve AI uzmanı. Önceden Google ve Microsoft\'ta çalıştı.',
+      name: 'Ece Sabri',
+      role: 'Ekip Üyesi',
+      image: '/images/products/ecesabrivesika.jpeg',
+      bio: 'Yazılım mimarı ve yapay zeka uzmanı. Sağlık teknolojilerinde yenilikçi çözümler üretiyor.',
       linkedin: '#',
       twitter: '#',
-      email: 'mehmet@medmentum.com',
+      email: 'ece@medmentum.com',
     },
     {
-      name: 'Zeynep Kaya',
-      role: 'Chief Medical Officer',
-      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400',
-      bio: 'Uzman doktor ve klinik araştırmacı. Dijital sağlık alanında öncü.',
+      name: 'Bayram Selim Yılmaz',
+      role: 'Ekip Üyesi',
+      image: '/images/products/bradpitthairnew111.jpg',
+      bio: 'Ürün geliştirme ve inovasyon lideri. Kullanıcı odaklı sağlık çözümleri tasarlıyor.',
       linkedin: '#',
       twitter: '#',
-      email: 'zeynep@medmentum.com',
-    },
-    {
-      name: 'Can Özdemir',
-      role: 'Head of Product',
-      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400',
-      bio: 'Ürün yönetimi ve UX tasarımında 10 yıllık deneyim.',
-      linkedin: '#',
-      twitter: '#',
-      email: 'can@medmentum.com',
-    },
-    {
-      name: 'Elif Yıldız',
-      role: 'Head of Data Science',
-      image: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400',
-      bio: 'Veri bilimci ve makine öğrenmesi uzmanı. PhD in Computer Science.',
-      linkedin: '#',
-      twitter: '#',
-      email: 'elif@medmentum.com',
-    },
-    {
-      name: 'Ali Yılmaz',
-      role: 'Lead Engineer',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400',
-      bio: 'Full-stack developer ve sistem mimarı. Open source katkıcısı.',
-      linkedin: '#',
-      twitter: '#',
-      email: 'ali@medmentum.com',
+      email: 'bayram@medmentum.com',
     },
   ]
 
@@ -77,25 +49,6 @@ const Team = () => {
         { name: 'Ekip', url: '/team' }
       ]} />
 
-      <div className="fixed inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-purple-950 -z-10">
-        <Particles count={50} />
-        <motion.div
-          animate={{
-            scale: [1, 1.1, 1],
-            rotate: [0, 90, 0],
-          }}
-          transition={{ duration: 20, repeat: Infinity }}
-          className="absolute top-20 left-20 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30"
-        />
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, -90, 0],
-          }}
-          transition={{ duration: 25, repeat: Infinity }}
-          className="absolute bottom-20 right-20 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30"
-        />
-      </div>
 
       {/* Page Header */}
       <section className="relative z-10 pt-12 pb-8">

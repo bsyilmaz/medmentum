@@ -6,8 +6,6 @@ import FadeIn from '../components/animations/FadeIn'
 import SEO from '../components/SEO'
 import { BreadcrumbSchema } from '../components/StructuredData'
 import { db } from '../lib/supabase'
-import Particles from '../components/animations/Particles'
-import RollingGallery from '../components/ui/RollingGallery'
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([])
@@ -169,8 +167,7 @@ const Blog = () => {
   }
 
   return (
-    <div className="min-h-screen pt-20 relative overflow-hidden bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
-      <Particles className="absolute inset-0 opacity-20" />
+    <div className="min-h-screen pt-20 relative overflow-hidden">
       
       <SEO 
         title="Blog ve Haberler | Sağlık Teknolojileri, AI ve Dijital Sağlık"
@@ -184,23 +181,6 @@ const Blog = () => {
         { name: 'Blog', url: '/blog' }
       ]} />
 
-      {/* Rolling Gallery */}
-      {!loading && blogs.length > 0 && (
-        <section className="relative z-10 mb-6 mt-8">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
-          >
-          <RollingGallery 
-            autoplay={true} 
-            pauseOnHover={true}
-            images={blogs.map(blog => blog.image_url)}
-            onImageClick={(index) => navigate(`/blog/${blogs[index].id}`)}
-          />
-          </motion.div>
-        </section>
-      )}
 
       {/* Search and Filter Section */}
       <section className="relative z-10 py-6">
@@ -224,24 +204,6 @@ const Blog = () => {
               />
             </div>
 
-            {/* Category Filter */}
-            <div className="flex flex-wrap justify-center gap-2">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`
-                    px-4 py-2 rounded-full text-sm font-medium transition-all duration-300
-                    ${selectedCategory === category
-                      ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/50 scale-105'
-                      : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-primary-500'
-                    }
-                  `}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
           </motion.div>
         </div>
       </section>
@@ -263,8 +225,6 @@ const Blog = () => {
                       <motion.div
                         className="group relative h-full cursor-pointer"
                         onClick={() => navigate(`/blog/${blog.id}`)}
-                        whileHover={{ y: -5 }}
-                        transition={{ duration: 0.3 }}
                       >
                         <div className="relative h-full rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden">
                           {/* Image */}
@@ -275,13 +235,6 @@ const Blog = () => {
                               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                            
-                            {/* Category Badge */}
-                            <div className="absolute top-4 left-4">
-                              <div className={`rounded-full px-3 py-1 text-xs font-semibold bg-gradient-to-r ${categoryColors[blog.category] || 'from-gray-500 to-gray-600'} text-white shadow-lg`}>
-                                {blog.category}
-                              </div>
-                            </div>
                           </div>
 
                           {/* Content */}
@@ -309,12 +262,9 @@ const Blog = () => {
                               <div className="text-xs text-gray-500 dark:text-gray-400">
                                 {formatDate(blog.created_at)}
                               </div>
-                              <motion.div
-                                className="p-1.5 rounded-full bg-primary-500/10 text-primary-500 group-hover:bg-primary-500 group-hover:text-white transition-all"
-                                whileHover={{ scale: 1.1 }}
-                              >
+                              <div className="p-1.5 rounded-full bg-primary-500/10 text-primary-500 transition-all">
                                 <ArrowRight size={16} />
-                              </motion.div>
+                              </div>
                             </div>
                           </div>
                         </div>

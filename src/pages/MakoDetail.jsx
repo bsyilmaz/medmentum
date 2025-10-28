@@ -1,474 +1,660 @@
-import { motion } from 'framer-motion'
-import { Check, ArrowLeft, Calendar, Zap, Shield, Clock, Users, Star } from 'lucide-react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { 
+  ArrowLeft, 
+  MessageSquare, 
+  Activity, 
+  Heart, 
+  Brain, 
+  AlertTriangle,
+  Shield,
+  Zap,
+  Clock,
+  CheckCircle2,
+  Database,
+  Users,
+  TrendingUp,
+  Award,
+  Lock,
+  Server
+} from 'lucide-react'
 import SEO from '../components/SEO'
-import { HoverBorderGradient } from '../components/ui/HoverBorderGradient'
-import HoverCard from '../components/animations/HoverCard'
-import MagneticButton from '../components/animations/MagneticButton'
-import { Marquee } from '../components/ui/Marquee'
+import { MakoScene } from '../components/mako/MakoScene'
+import { SimulationStep } from '../components/mako/SimulationStep'
+import { useSimulationStore } from '../hooks/useSimulationStore'
+import { useEffect } from 'react'
 
 const MakoDetail = () => {
-  const updates = [
-    {
-      version: 'v2.1.0',
-      date: '2024-10-15',
-      title: 'AI Motor Güncellemesi',
-      type: 'feature',
-      changes: [
-        'Yüz tanıma doğruluğu %98.5\'e yükseltildi',
-        'Sesli asistan Türkçe dil desteği geliştirildi',
-        'Yeni hasta önceliklendirme algoritması eklendi'
-      ]
-    },
-    {
-      version: 'v2.0.5',
-      date: '2024-09-28',
-      title: 'Performans İyileştirmeleri',
-      type: 'improvement',
-      changes: [
-        'Check-in süresi 30 saniye iyileştirildi',
-        'Yazıcı bağlantı hızı optimize edildi',
-        'Bellek kullanımı %20 azaltıldı'
-      ]
-    },
-    {
-      version: 'v2.0.0',
-      date: '2024-09-01',
-      title: 'Büyük Güncelleme - Ödeme Entegrasyonu',
-      type: 'feature',
-      changes: [
-        'Kredi kartı ödeme desteği eklendi',
-        'QR kod ile ödeme sistemi entegre edildi',
-        'Sigorta şirketleri ile otomatik faturalandırma',
-        'Elektronik fatura yazdırma özelliği'
-      ]
-    },
-    {
-      version: 'v1.9.2',
-      date: '2024-08-10',
-      title: 'Güvenlik Yaması',
-      type: 'security',
-      changes: [
-        'KVKK uyumluluğu güncellemeleri',
-        'Veri şifreleme protokolü güçlendirildi',
-        'Güvenlik açığı düzeltmeleri'
-      ]
-    },
-    {
-      version: 'v1.9.0',
-      date: '2024-07-20',
-      title: 'Çoklu Dil Desteği',
-      type: 'feature',
-      changes: [
-        '10 yeni dil desteği eklendi',
-        'Arapça sağdan sola yazım desteği',
-        'Sesli asistan çok dilli iletişim'
-      ]
-    }
-  ]
+  const resetSimulation = useSimulationStore((state) => state.resetSimulation)
 
-  const product = {
-    name: 'MAKO Medical Assistant Kiosk',
-    tagline: 'Akıllı Sağlık Asistanı Kiosk',
-    description: 'Hastanelerde ve sağlık merkezlerinde hasta kabul, yönlendirme ve bilgilendirme süreçlerini otomatikleştiren yapay zeka destekli self-servis kiosk. Dokunmatik ekran, yüz tanıma ve sesli asistan özellikleriyle hasta deneyimini iyileştirir.',
-    longDescription: 'MAKO Medical Assistant Kiosk, hasta kayıt işlemlerinden randevu kontrolüne, ödeme işlemlerinden reçete yazdırmaya kadar birçok işlemi otomatikleştiren yenilikçi bir çözümdür. Yapay zeka destekli sesli asistan, hastalarınıza 7/24 destek sağlar. Modern tasarımı ve kullanıcı dostu arayüzü ile bekleme sürelerini kısaltır ve personel iş yükünü azaltır.',
-    image_url: '/images/products/makofull.png',
-    color: 'from-blue-500 to-purple-600',
-    features: [
-      {
-        title: 'Self-Service Check-in',
-        description: 'Otomatik hasta kayıt ve check-in sistemi'
-      },
-      {
-        title: 'AI Voice Assistant',
-        description: 'Sesli komutlarla etkileşim ve yönlendirme'
-      },
-      {
-        title: 'Face Recognition',
-        description: 'Yüz tanıma ile hızlı kimlik doğrulama'
-      },
-      {
-        title: 'Payment Integration',
-        description: 'Entegre ödeme sistemi ve fatura yazdırma'
-      },
-      {
-        title: 'Multi-Language',
-        description: 'Çoklu dil desteği ve erişilebilirlik özellikleri'
-      },
-      {
-        title: 'Queue Management',
-        description: 'Akıllı sıra yönetimi ve bekleme süresi tahmini'
-      },
-      {
-        title: 'Document Printing',
-        description: 'Reçete, rapor ve belge yazdırma özellikleri'
-      },
-      {
-        title: 'Emergency Support',
-        description: 'Acil durumlarda personel çağırma sistemi'
-      },
-      {
-        title: 'Data Security',
-        description: 'KVKK ve HIPAA uyumlu veri güvenliği'
-      }
-    ],
-    stats: [
-      { label: 'İşlem Süresi', value: '<2 dk' },
-      { label: 'Dil Desteği', value: '15+' },
-      { label: 'Hasta Memnuniyeti', value: '95%' },
-      { label: 'Personel Tasarrufu', value: '40%' }
-    ],
-    technicalSpecs: [
-      { label: 'Ekran', value: '32" 4K Dokunmatik Display' },
-      { label: 'Kamera', value: 'AI-Powered 1080p HD Camera' },
-      { label: 'Bağlantı', value: 'WiFi 6, Ethernet, 4G LTE' },
-      { label: 'İşletim Sistemi', value: 'Linux/Android' },
-      { label: 'Boyutlar', value: '180cm (H) x 60cm (W) x 40cm (D)' }
-    ],
-    useCases: [
-      {
-        title: 'Hasta Kabul',
-        description: 'Yeni hastalar kimlik bilgilerini sisteme kaydedebilir, randevu oluşturabilir'
-      },
-      {
-        title: 'Randevu Check-in',
-        description: 'Randevulu hastalar hızlıca check-in yaparak sıra numarası alabilir'
-      },
-      {
-        title: 'Ödeme İşlemleri',
-        description: 'Kredi kartı, nakit veya sigorta ile ödeme yapılabilir'
-      },
-      {
-        title: 'Bilgilendirme',
-        description: 'Hastaların sorularını yanıtlar, bölümlere yönlendirir'
-      }
-    ]
-  }
+  // Sayfa yüklendiğinde simülasyonu sıfırla
+  useEffect(() => {
+    resetSimulation()
+  }, [resetSimulation])
 
   return (
-    <div className="min-h-screen relative">
+    <div className="min-h-screen bg-[#101828]">
       <SEO 
-        title="MAKO Medical Assistant Kiosk | Akıllı Sağlık Asistanı"
-        description="MAKO Medical Assistant Kiosk - Yapay zeka destekli self-servis hasta kabul ve yönlendirme sistemi. Yüz tanıma, sesli asistan ve akıllı sıra yönetimi."
-        keywords="mako kiosk, medical kiosk, self-service healthcare, hasta kabul kiosk, AI kiosk"
+        title="Mako - The Triage Flow | AI-Powered Autonomous Triage"
+        description="Yapay zeka destekli otonom triyaj sistemi. Kaotik acil servis süreçlerini saniyeler içinde optimize eden devrim niteliğinde çözüm."
+        keywords="mako, triage, AI triage, emergency, acil servis, triyaj, yapay zeka"
         url="/products/mako"
         image="/images/products/makofull.png"
       />
 
-      {/* Hero Section with Image */}
-      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-blue-950 dark:via-purple-950 dark:to-gray-950">
-        {/* Animated Background */}
-        <div className="absolute inset-0 opacity-40">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl animate-pulse" />
-          <div className="absolute bottom-20 right-10 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-          <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl animate-pulse" style={{ animationDelay: '2s', transform: 'translate(-50%, -50%)' }} />
-        </div>
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-7xl mx-auto"
-          >
-            {/* Back Button */}
-            <Link 
-              to="/products"
-              className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 mb-8 group transition-all"
-            >
-              <ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
-              <span className="text-sm font-semibold">Tüm Ürünlere Dön</span>
-            </Link>
+      {/* SAHNE 1: HERO - Kaosun Ortası */}
+      <Scene1Hero />
 
-            {/* Hero Content */}
-            <div className="max-w-4xl mx-auto">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="space-y-6 text-center"
-              >
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full text-sm font-semibold text-blue-700 dark:text-blue-300">
-                  <Star className="w-4 h-4" />
-                  En Popüler Çözüm
-                </div>
+      {/* SAHNE 2: REVEAL - Mako ile Tanışma */}
+      <Scene2Reveal />
 
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight">
-              {product.name}
-            </h1>
-            
-                <p className={`text-2xl md:text-3xl font-bold bg-gradient-to-r ${product.color} bg-clip-text text-transparent`}>
-              {product.tagline}
-            </p>
+      {/* SAHNE 3: SIMULATION - İnteraktif Deneyim */}
+      <Scene3Simulation />
 
-                <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-              {product.description}
-            </p>
+      {/* SAHNE 4: FEATURES - Sadece Hız Değil */}
+      <Scene4Features />
 
-                <p className="text-base text-gray-600 dark:text-gray-400 leading-relaxed">
-                  {product.longDescription}
-                </p>
+      {/* SAHNE 5: TRUST - Güven ve Teknik Detay */}
+      <Scene5Trust />
 
-                {/* Quick Stats */}
-                <div className="flex flex-wrap justify-center gap-4 pt-4">
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-xl shadow-sm"
-                  >
-                    <Clock className="w-5 h-5 text-blue-600" />
-                    <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">Hızlı Check-in</span>
-                  </motion.div>
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-xl shadow-sm"
-                  >
-                    <Users className="w-5 h-5 text-purple-600" />
-                    <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">15+ Dil</span>
-                  </motion.div>
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-xl shadow-sm"
-                  >
-                    <Shield className="w-5 h-5 text-green-600" />
-                    <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">KVKK Uyumlu</span>
-                  </motion.div>
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Features Marquee Section */}
-      <section className="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950">
-        <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="max-w-7xl mx-auto"
-          >
-            <Marquee className="[--duration:40s]">
-              {product.features.map((feature, i) => (
-                <motion.div
-                  key={i}
-                  whileHover={{ scale: 1.05 }}
-                  className="flex items-center gap-4 px-6 py-4 mx-3 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300"
-                >
-                  <div className={`w-10 h-10 rounded-xl bg-gradient-to-r ${product.color} flex items-center justify-center flex-shrink-0 shadow-md`}>
-                    <Check className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                    <h4 className="text-base font-bold text-gray-900 dark:text-white">
-                        {feature.title}
-                      </h4>
-                    <p className="text-xs text-gray-600 dark:text-gray-400">
-                        {feature.description}
-                      </p>
-                  </div>
-                </motion.div>
-              ))}
-            </Marquee>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Updates & Changelog Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
-        <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto"
-          >
-            <div className="text-center mb-16">
-              <motion.h2
-                initial={{ opacity: 0, y: -20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white"
-              >
-                Güncellemeler & Değişiklikler
-              </motion.h2>
-              <motion.p
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="text-xl text-gray-600 dark:text-gray-400"
-              >
-                Geliştirme tarihçesi ve iyileştirmeler
-              </motion.p>
-            </div>
-
-            <div className="space-y-6">
-              {updates.map((update, i) => {
-                const typeColors = {
-                  feature: 'from-blue-500 to-purple-600',
-                  improvement: 'from-green-500 to-teal-600',
-                  security: 'from-red-500 to-orange-600'
-                }
-                const typeLabels = {
-                  feature: 'Yeni Özellik',
-                  improvement: 'İyileştirme',
-                  security: 'Güvenlik'
-                }
-                const typeBgColors = {
-                  feature: 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300',
-                  improvement: 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300',
-                  security: 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300'
-                }
-
-                return (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.1, duration: 0.5 }}
-                    viewport={{ once: true }}
-                    whileHover={{ x: 10 }}
-                    className="relative pl-8 pb-8 border-l-2 border-gray-300 dark:border-gray-700"
-                  >
-                    {/* Animated Timeline dot */}
-                    <motion.div
-                      animate={{ scale: [1, 1.2, 1] }}
-                      transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
-                      className={`absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-gradient-to-r ${typeColors[update.type]} border-2 border-white dark:border-gray-900 shadow-lg`}
-                    />
-                    
-                    <HoverCard className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow border border-gray-100 dark:border-gray-700">
-                      {/* Header */}
-                      <div className="flex flex-wrap items-center gap-3 mb-5">
-                        <motion.span
-                          whileHover={{ scale: 1.1 }}
-                          className="text-3xl font-bold text-gray-900 dark:text-white"
-                        >
-                          {update.version}
-                        </motion.span>
-                        <motion.span
-                          whileHover={{ scale: 1.05 }}
-                          className={`px-4 py-2 rounded-full text-xs font-bold ${typeBgColors[update.type]}`}
-                        >
-                          {typeLabels[update.type]}
-                        </motion.span>
-                        <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 ml-auto">
-                          <Calendar className="w-4 h-4" />
-                          <span>{new Date(update.date).toLocaleDateString('tr-TR', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
-                        </div>
-                      </div>
-
-                      {/* Title */}
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
-                        {update.title}
-                      </h3>
-
-                      {/* Changes */}
-                      <ul className="space-y-3">
-                        {update.changes.map((change, j) => (
-                          <motion.li
-                            key={j}
-                            initial={{ opacity: 0, x: -10 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: (i * 0.1) + (j * 0.05) }}
-                            className="flex items-start gap-3"
-                          >
-                            <motion.div
-                              animate={{ rotate: [0, 180, 360] }}
-                              transition={{ duration: 0.5, delay: (i * 0.1) + (j * 0.05) }}
-                            >
-                              <Zap className={`w-5 h-5 mt-0.5 flex-shrink-0 bg-gradient-to-r ${typeColors[update.type]} bg-clip-text text-transparent`} />
-                            </motion.div>
-                            <span className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                              {change}
-                            </span>
-                          </motion.li>
-                        ))}
-                      </ul>
-                    </HoverCard>
-                  </motion.div>
-                )
-              })}
-            </div>
-
-            {/* Version info */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.5 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.02 }}
-              className="mt-12 text-center p-8 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-gray-800 dark:to-gray-700 rounded-2xl shadow-lg border-2 border-blue-200 dark:border-blue-800"
-            >
-              <motion.p
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="text-2xl font-bold text-gray-900 dark:text-white mb-3 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
-              >
-                Mevcut Versiyon: v2.1.0
-              </motion.p>
-              <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
-                Son güncelleme: 15 Ekim 2024
-              </p>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-purple-600 to-pink-600">
-          <div className="absolute inset-0 opacity-20">
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-3xl animate-pulse" />
-            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
-          </div>
-        </div>
-        
-        <div className="container mx-auto px-6 relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-white"
-          >
-            <motion.div
-              animate={{ rotate: [0, 10, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity }}
-              className="inline-block mb-6"
-            >
-              <Star className="w-16 h-16 text-yellow-300" fill="currentColor" />
-            </motion.div>
-            
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              MAKO'yu Sağlık Merkezinize Getirin
-            </h2>
-            <p className="text-xl mb-10 opacity-95 leading-relaxed">
-              Demo talep edin ve hasta deneyimini nasıl iyileştireceğimizi görün. 
-              <br className="hidden md:block" />
-              Hemen ücretsiz deneyin!
-            </p>
-            <Link to="/contact">
-              <MagneticButton className="inline-block">
-              <HoverBorderGradient
-                containerClassName="rounded-full"
-                as="button"
-                  className="bg-white text-primary-600 px-10 py-5 text-lg font-bold shadow-xl hover:shadow-2xl transition-shadow"
-                duration={2}
-              >
-                  Demo Talep Et →
-              </HoverBorderGradient>
-              </MagneticButton>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
+      {/* SAHNE 6: CTA - Geleceği Başlatın */}
+      <Scene6CTA />
     </div>
   )
 }
 
-export default MakoDetail
+// ========================================
+// SAHNE 1: HERO - Kaosun Ortası
+// ========================================
+function Scene1Hero() {
+  const { scrollYProgress } = useScroll()
+  const opacity = useTransform(scrollYProgress, [0, 0.15], [1, 0])
+  
+  return (
+    <motion.section 
+      style={{ opacity }}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
+      {/* Video Arka Plan (Kaos) - Gerçek proje için video eklenebilir */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-red-900/20 to-gray-900">
+        {/* Animated chaos effect */}
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3]
+          }}
+          transition={{ duration: 8, repeat: Infinity }}
+          className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070')] bg-cover bg-center opacity-20 blur-sm"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#101828]/50 to-[#101828]" />
+      </div>
 
+      {/* Geri Dön Butonu */}
+      <Link 
+        to="/products"
+        className="absolute top-24 left-8 z-20 inline-flex items-center gap-2 text-white/80 hover:text-white group transition-all"
+      >
+        <ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
+        <span className="text-sm font-semibold">Tüm Ürünlere Dön</span>
+      </Link>
+
+      {/* Metin Blokları */}
+      <div className="relative z-10 container mx-auto px-6 text-center">
+        <motion.h1
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.0 }}
+          className="text-5xl md:text-7xl font-bold text-white mb-8"
+        >
+          Acil Serviste...
+        </motion.h1>
+
+        <motion.h2
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.0, duration: 1.0 }}
+          className="text-4xl md:text-6xl font-bold text-gray-300 mb-8"
+        >
+          ...herkes eşit değildir.
+        </motion.h2>
+
+        <motion.h3
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2.0, duration: 1.0 }}
+          className="text-5xl md:text-7xl font-bold text-[#E53E3E] mb-12"
+        >
+          Ve öncelik, hayat demektir.
+        </motion.h3>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 3.0, duration: 1.0 }}
+        >
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="text-[#319795] flex flex-col items-center gap-2"
+          >
+            <span className="text-lg font-semibold">Kaosu Nasıl Çözdüğümüzü Görün</span>
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </motion.div>
+        </motion.div>
+      </div>
+    </motion.section>
+  )
+}
+
+// ========================================
+// SAHNE 2: REVEAL - Mako ile Tanışma
+// ========================================
+function Scene2Reveal() {
+  return (
+    <section className="relative min-h-screen flex items-center justify-center bg-[#101828] py-20">
+      <div className="container mx-auto px-6">
+        <div className="grid md:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+          
+          {/* Sol: Metin */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8 }}
+            className="space-y-6"
+          >
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="text-6xl md:text-8xl font-bold text-white"
+            >
+              Mako.
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="text-2xl md:text-3xl font-semibold text-[#319795]"
+            >
+              Yapay Zeka Destekli Otonom Triyaj.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="text-lg text-gray-400 leading-relaxed"
+            >
+              Geleneksel triyajın dakikalar süren belirsizliğini, Mako'nun saniyeler süren objektif veri analizine bırakın.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+              className="flex flex-wrap gap-4 pt-4"
+            >
+              <div className="flex items-center gap-2 px-4 py-2 bg-[#1a2332] rounded-lg border border-gray-700">
+                <Clock className="w-5 h-5 text-[#319795]" />
+                <span className="text-sm font-semibold text-white">45 Saniye</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 bg-[#1a2332] rounded-lg border border-gray-700">
+                <Brain className="w-5 h-5 text-[#319795]" />
+                <span className="text-sm font-semibold text-white">AI-Powered</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 bg-[#1a2332] rounded-lg border border-gray-700">
+                <Shield className="w-5 h-5 text-[#319795]" />
+                <span className="text-sm font-semibold text-white">KVKK Uyumlu</span>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Sağ: Görsel */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="relative"
+          >
+            <motion.img
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+              src="/images/products/makofull.png"
+              alt="Mako Kiosk"
+              className="w-full h-auto rounded-2xl shadow-2xl"
+            />
+            {/* Glow effect */}
+            <div className="absolute inset-0 bg-[#319795] rounded-2xl blur-3xl opacity-20 -z-10" />
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ========================================
+// SAHNE 3: SIMULATION - İnteraktif Deneyim (ÖDÜLLü KISIM)
+// ========================================
+function Scene3Simulation() {
+  return (
+    <section className="relative h-[600vh] bg-[#101828]">
+      {/* SOL BÖLÜM: YAPIŞKAN 3D SAHNE */}
+      <div className="sticky top-0 h-screen w-full md:w-1/2 float-left">
+        <MakoScene />
+      </div>
+
+      {/* SAĞ BÖLÜM: KAYAN ADIMLAR */}
+      <div className="absolute top-0 right-0 w-full md:w-1/2 h-full">
+        {/* Başlık */}
+        <div className="h-screen flex items-center justify-start px-8 md:px-12 lg:px-16">
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="w-full md:w-4/5 lg:w-3/4 xl:w-2/3 space-y-4"
+          >
+            <h2 className="text-5xl md:text-6xl font-bold text-white">
+              Triyaj Akışı Simülasyonu
+            </h2>
+            <p className="text-xl text-gray-400">
+              Bir hastanın Mako ile nasıl 45 saniyede triyaj edildiğini görün.
+            </p>
+          </motion.div>
+        </div>
+
+        {/* Adım 1: Hasta Girdisi */}
+        <SimulationStep
+          stepName="input"
+          icon={MessageSquare}
+          color="text-blue-400"
+          title="Adım 1: Hasta Girdisi"
+          text="'Şiddetli göğüs ağrısı ve nefes darlığı...'"
+          description="Hasta kioskta semptomlarını girer. Dokunmatik ekran veya sesli komutla iletişim kurar."
+        />
+
+        {/* Adım 2: Akıllı Anamnez */}
+        <SimulationStep
+          stepName="anamnesis"
+          icon={Activity}
+          color="text-purple-400"
+          title="Adım 2: Akıllı Anamnez"
+          text="'Ağrı sol kola vuruyor mu? → Evet'"
+          description="Yapay zeka, semptoma özel akıllı sorular sorar. Her cevap, algoritmanın hassasiyetini artırır."
+        />
+
+        {/* Adım 3: Vital Veri */}
+        <SimulationStep
+          stepName="vitals"
+          icon={Heart}
+          color="text-pink-400"
+          title="Adım 3: Vital Veri Toplama"
+          text="SPO2: %91 | Nabız: 115 (Aritmik)"
+          description="Entegre sensörler vital verileri otomatik olarak alır. İnsan hatasına yer yoktur."
+        />
+
+        {/* Adım 4: AI Analizi */}
+        <SimulationStep
+          stepName="analysis"
+          icon={Brain}
+          color="text-teal-400"
+          title="Adım 4: AI Analizi"
+          text="Neural Network Çalışıyor..."
+          description="Tüm veri (semptomlar, anamnez, vitaller) anında yapay zeka modelinden geçer ve E.S.I. seviyesi hesaplanır."
+        />
+
+        {/* Adım 5: Sonuç */}
+        <SimulationStep
+          stepName="result"
+          icon={AlertTriangle}
+          color="text-red-400"
+          title="Adım 5: SONUÇ"
+          text="E.S.I. SEVİYE 1 - KRİTİK"
+          description="Akut Miyokard Enfarktüsü Şüphesi. KIRMIZI ALAN. Personel anında bilgilendirildi."
+        />
+
+        {/* Çıktı: Değer Önerisi */}
+        <div className="h-screen flex items-center justify-start px-8 md:px-12 lg:px-16">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8 }}
+            className="w-full md:w-4/5 lg:w-3/4 xl:w-2/3 space-y-8"
+          >
+            <div className="text-center space-y-6 bg-gradient-to-br from-[#1a2332] to-[#101828] p-12 rounded-3xl border-2 border-[#319795] shadow-2xl">
+              <motion.p
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="text-6xl font-bold text-[#319795]"
+              >
+                45 Saniye
+              </motion.p>
+              <p className="text-2xl text-white font-semibold">Bu sürecin tamamı</p>
+              
+              <div className="h-px bg-gray-700 my-6" />
+              
+              <p className="text-4xl text-gray-400">vs</p>
+              
+              <div className="h-px bg-gray-700 my-6" />
+              
+              <p className="text-6xl font-bold text-gray-500 line-through">5-7 Dakika</p>
+              <p className="text-2xl text-gray-500">Geleneksel hemşire triyajı</p>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="pt-8"
+              >
+                <p className="text-3xl font-bold text-[#E53E3E]">
+                  Kazanılan: 6 Dakika
+                </p>
+                <p className="text-lg text-gray-400 mt-2">
+                  Kalp krizinde bu, hayat demektir.
+                </p>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ========================================
+// SAHNE 4: FEATURES - Sadece Hız Değil
+// ========================================
+function Scene4Features() {
+  const features = [
+    {
+      icon: CheckCircle2,
+      title: 'Objektif Skorlama (E.S.I.)',
+      description: '7/24 tutarlı, insan hatasından ve yorgunluktan bağımsız Emergency Severity Index skorlaması.',
+      color: 'text-green-400',
+      bgColor: 'bg-green-900/20'
+    },
+    {
+      icon: Database,
+      title: 'HBYS Entegrasyonu',
+      description: 'API-first yaklaşımı. Tüm veriler anında HBYS, PACS ve E-Nabız sisteminizle konuşur. Çift işleme son.',
+      color: 'text-blue-400',
+      bgColor: 'bg-blue-900/20'
+    },
+    {
+      icon: Users,
+      title: 'Personel Optimizasyonu',
+      description: 'Hemşirelerinizin odağını "veri girmekten", "hayat kurtarmaya" çevirin. Mako ön büroyu yönetir.',
+      color: 'text-purple-400',
+      bgColor: 'bg-purple-900/20'
+    }
+  ]
+
+  return (
+    <section className="relative min-h-screen flex items-center bg-gradient-to-b from-[#101828] to-[#1a2332] py-20">
+      <div className="container mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
+            Sadece Hız Değil
+          </h2>
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            Mako, hızın ötesinde tutarlılık, entegrasyon ve ekip verimliliği sunar.
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              whileHover={{ scale: 1.05, y: -10 }}
+              className={`${feature.bgColor} backdrop-blur-sm border border-gray-700 rounded-2xl p-8 space-y-4`}
+            >
+              <div className={`${feature.color} inline-block p-4 bg-[#101828] rounded-xl`}>
+                <feature.icon className="w-12 h-12" strokeWidth={1.5} />
+              </div>
+              <h3 className="text-2xl font-bold text-white">{feature.title}</h3>
+              <p className="text-gray-400 leading-relaxed">{feature.description}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ========================================
+// SAHNE 5: TRUST - Güven ve Teknik Detay
+// ========================================
+function Scene5Trust() {
+  const trustBadges = [
+    { icon: Shield, label: 'KVKK UYUMLU' },
+    { icon: Lock, label: 'HIPAA STANDARTLARI' },
+    { icon: Server, label: 'ISO 27001' },
+    { icon: Award, label: 'CE SERTİFİKALI' }
+  ]
+
+  return (
+    <section className="relative min-h-screen flex items-center bg-[#101828] py-20">
+      <div className="container mx-auto px-6">
+        <div className="grid md:grid-cols-2 gap-16 max-w-7xl mx-auto items-center">
+          
+          {/* Sol: Güven */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="space-y-8"
+          >
+            <h2 className="text-5xl font-bold text-white">
+              Güvende ve Uyumlu
+            </h2>
+
+            {/* Testimonial */}
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              className="bg-gradient-to-br from-[#1a2332] to-[#101828] p-8 rounded-2xl border-l-4 border-[#319795] shadow-xl"
+            >
+              <p className="text-xl text-gray-300 italic mb-4">
+                "Mako'yu acil servisimize entegre ettikten sonra, hasta bekleme süremiz %60 azaldı ve hemşirelerimiz artık gerçekten önemli işlere odaklanabiliyor."
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-[#319795] rounded-full flex items-center justify-center">
+                  <Users className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <p className="font-bold text-white">Dr. Ayşe Yılmaz</p>
+                  <p className="text-sm text-gray-400">Acil Servis Şefi, Ankara Şehir Hastanesi</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Trust Badges */}
+            <div className="grid grid-cols-2 gap-4">
+              {trustBadges.map((badge, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ scale: 1.1 }}
+                  className="flex items-center gap-3 bg-[#1a2332] px-4 py-3 rounded-lg border border-gray-700"
+                >
+                  <badge.icon className="w-6 h-6 text-[#319795]" />
+                  <span className="text-sm font-bold text-white">{badge.label}</span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Sağ: Teknik Mimari */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="space-y-6"
+          >
+            <h3 className="text-3xl font-bold text-white mb-8">Basit Entegrasyon</h3>
+            
+            {/* Architecture Diagram */}
+            <div className="bg-[#1a2332] p-8 rounded-2xl border border-gray-700 space-y-6">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="bg-[#319795] text-white px-6 py-4 rounded-lg text-center font-bold text-lg"
+              >
+                MAKO KIOSK
+              </motion.div>
+
+              <div className="flex items-center justify-center">
+                <motion.div
+                  animate={{ y: [0, 10, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <Zap className="w-8 h-8 text-[#E53E3E]" />
+                </motion.div>
+              </div>
+
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="bg-blue-900/30 text-blue-400 px-6 py-4 rounded-lg text-center font-bold border border-blue-700"
+              >
+                REST API / HL7 FHIR
+              </motion.div>
+
+              <div className="flex items-center justify-center">
+                <motion.div
+                  animate={{ y: [0, 10, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+                >
+                  <Zap className="w-8 h-8 text-[#E53E3E]" />
+                </motion.div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="bg-purple-900/30 text-purple-400 px-4 py-3 rounded-lg text-center text-sm font-bold border border-purple-700"
+                >
+                  HBYS
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="bg-purple-900/30 text-purple-400 px-4 py-3 rounded-lg text-center text-sm font-bold border border-purple-700"
+                >
+                  E-NABIZ
+                </motion.div>
+              </div>
+
+              <p className="text-sm text-gray-400 text-center pt-4">
+                Plug & Play entegrasyon. Kurulum süresi: 2 gün.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ========================================
+// SAHNE 6: CTA - Geleceği Başlatın
+// ========================================
+function Scene6CTA() {
+  return (
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#319795] via-[#1a2332] to-[#101828] overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0">
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3]
+          }}
+          transition={{ duration: 8, repeat: Infinity }}
+          className="absolute top-20 left-20 w-96 h-96 bg-[#319795] rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.2, 0.4, 0.2]
+          }}
+          transition={{ duration: 10, repeat: Infinity, delay: 1 }}
+          className="absolute bottom-20 right-20 w-96 h-96 bg-[#E53E3E] rounded-full blur-3xl"
+        />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto space-y-8"
+        >
+          <motion.div
+            animate={{ rotate: [0, 10, -10, 0] }}
+            transition={{ duration: 4, repeat: Infinity }}
+            className="inline-block"
+          >
+            <TrendingUp className="w-20 h-20 text-white" strokeWidth={1.5} />
+          </motion.div>
+
+          <h2 className="text-5xl md:text-7xl font-bold text-white">
+            Triyajınızı şansa bırakmayın.
+          </h2>
+
+          <p className="text-2xl text-white/90 leading-relaxed">
+            Mako'nun hastanenizdeki iş akışını nasıl dönüştüreceğini 
+            <span className="font-bold text-[#E53E3E]"> 15 dakikalık</span> kişiselleştirilmiş bir demo ile görün.
+          </p>
+
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="pt-8"
+          >
+            <Link
+              to="/contact"
+              className="inline-block px-12 py-6 bg-white text-[#101828] text-xl font-bold rounded-full shadow-2xl hover:shadow-[0_0_50px_rgba(49,151,149,0.5)] transition-all duration-300"
+            >
+              Canlı Demo Planlayın →
+            </Link>
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5 }}
+            className="text-white/70 text-sm pt-8"
+          >
+            Kurulum 2 gün | KVKK Uyumlu | 7/24 Destek
+          </motion.p>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
+export default MakoDetail

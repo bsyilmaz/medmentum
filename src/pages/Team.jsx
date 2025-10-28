@@ -9,7 +9,7 @@ const Team = () => {
     {
       name: 'Berkay Bazkurt',
       role: 'Ekip Üyesi',
-      image: '/images/products/berkayvesika11.png',
+      image: '/images/berkayvesika.jpeg',
       bio: 'Sağlık teknolojileri alanında vizyoner lider. AI destekli tıbbi çözümler geliştiriyor.',
       linkedin: '#',
       twitter: '#',

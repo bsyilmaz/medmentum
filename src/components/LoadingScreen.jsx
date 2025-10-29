@@ -17,20 +17,17 @@ const LoadingScreen = ({ onLoadingComplete }) => {
         initial={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
-        className="fixed inset-0 z-[9999] flex items-center justify-center bg-white dark:bg-gray-900"
+        className="fixed inset-0 z-[9999]"
       >
-        {/* Logo */}
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
+        {/* Full Screen Logo */}
+        <motion.img
+          src="/images/products/medmentumlogin.jpeg"
+          alt="Medmentum"
+          initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.5 }}
-        >
-          <img
-            src="/images/products/medmentumlogin.jpeg"
-            alt="Medmentum"
-            className="w-48 h-48 md:w-64 md:h-64 object-contain"
-          />
-        </motion.div>
+          className="w-full h-full object-cover"
+        />
       </motion.div>
     </AnimatePresence>
   )

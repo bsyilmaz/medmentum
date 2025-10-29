@@ -110,9 +110,11 @@ const Header = () => {
           {/* Theme Toggle & CTA */}
           <div className="hidden md:flex items-center space-x-4">
             <AnimatedThemeToggler />
-            <Button size="sm">
-              Demo Talep Et
-            </Button>
+            <Link to="/contact#demo">
+              <Button size="sm">
+                Demo Talep Et
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button & Theme Toggle */}
@@ -151,9 +153,11 @@ const Header = () => {
               </Link>
             ))}
             <div className="mt-4 px-4">
-              <Button size="sm" className="w-full">
-                Demo Talep Et
-              </Button>
+              <Link to="/contact#demo">
+                <Button size="sm" className="w-full">
+                  Demo Talep Et
+                </Button>
+              </Link>
             </div>
           </motion.div>
         )}

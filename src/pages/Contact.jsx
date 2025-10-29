@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { MapPin, Mail, Phone, Send, MessageCircle, Calendar, Clock } from 'lucide-react'
 import Card from '../components/ui/Card'
@@ -25,6 +25,13 @@ const Contact = () => {
     phone: '',
     needs: ''
   })
+
+  useEffect(() => {
+    // URL hash'ini kontrol et ve demo tab'ına geç
+    if (window.location.hash === '#demo') {
+      setActiveTab('demo')
+    }
+  }, [])
 
   const handleSubmit = (e) => {
     e.preventDefault()

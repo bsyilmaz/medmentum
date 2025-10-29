@@ -12,7 +12,7 @@ const Careers = () => {
   const navigate = useNavigate()
 
   return (
-    <div className="overflow-hidden relative">
+    <div className="min-h-screen flex flex-col relative">
       <div className="fixed inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-purple-950 -z-10">
         <Particles count={50} />
         <motion.div
@@ -40,7 +40,7 @@ const Careers = () => {
       />
 
       {/* Job Listings Section */}
-      <section className="py-20">
+      <section className="flex-1 py-20">
         <div className="container mx-auto px-6 max-w-4xl">
           <FadeIn>
             <div className="text-center mb-16">

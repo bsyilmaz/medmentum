@@ -75,8 +75,8 @@ const Home = () => {
                 transition={{ delay: 0.5, duration: 0.6 }}
                 className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed text-center"
               >
-                Yapay zeka destekli teşhis, gerçek zamanlı izleme ve hasta odaklı bakım ile 
-                sağlık hizmetlerinde yeni bir çağ başlatıyoruz.
+                Akıllı yazılım çözümlerimizle sağlık hizmetlerini yeniden tanımlıyoruz.
+                Yapay zekâ destekli teşhis, gerçek zamanlı veri analizi ve insan odaklı bakım deneyimiyle sağlıkta yeni bir dönemi başlatıyoruz.
               </motion.p>
             </FadeIn>
 

@@ -3,10 +3,10 @@ import { useEffect } from 'react'
 
 const LoadingScreen = ({ onLoadingComplete }) => {
   useEffect(() => {
-    // 1.5 saniye sonra loading tamamlansın
+    // 0.8 saniye sonra loading tamamlansın
     const timer = setTimeout(() => {
       onLoadingComplete()
-    }, 1500)
+    }, 800)
 
     return () => clearTimeout(timer)
   }, [onLoadingComplete])

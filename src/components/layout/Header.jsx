@@ -36,7 +36,7 @@ const Header = () => {
         ${isScrolled ? 'glass-effect shadow-lg' : 'bg-transparent'}
       `}
     >
-      <nav className="container mx-auto px-6 py-4">
+      <nav className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center">
@@ -78,7 +78,7 @@ const Header = () => {
               <img 
                 src="/images/products/medmentum.png" 
                 alt="Medmentum" 
-                className="h-12 w-auto object-contain"
+                className="h-10 sm:h-12 w-auto object-contain"
               />
             </motion.div>
           </Link>

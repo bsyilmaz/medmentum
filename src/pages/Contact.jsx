@@ -191,12 +191,12 @@ const Contact = () => {
         </motion.div>
 
         {/* Form Section */}
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto px-4 sm:px-0">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8"
           >
             {/* Form Card */}
             <div className="relative group">
@@ -375,7 +375,7 @@ const Contact = () => {
                       </div>
 
                       <form onSubmit={handleDemoSubmit} className="space-y-6">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <motion.div
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -408,7 +408,7 @@ const Contact = () => {
                           </motion.div>
                         </div>
                         
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <motion.div
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -483,10 +483,10 @@ const Contact = () => {
               <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
               
               <Card className="relative bg-white dark:bg-gray-900 h-full">
-                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                   Konumumuz
                 </h2>
-                <div className="relative w-full h-[500px] rounded-xl overflow-hidden group-hover:shadow-xl transition-shadow duration-300">
+                <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-xl overflow-hidden group-hover:shadow-xl transition-shadow duration-300">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3007.6687167192887!2d29.010652315456644!3d41.084545979289!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab5f7e0d79c2f%3A0x68781d6cfb4dbf66!2sMaslak%2C%20Istanbul!5e0!3m2!1sen!2str!4v1234567890"
                     width="100%"

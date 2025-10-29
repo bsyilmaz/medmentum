@@ -184,7 +184,7 @@ const Blog = () => {
 
       {/* Search and Filter Section */}
       <section className="relative z-10 py-6">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-4 sm:px-6">
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -210,7 +210,7 @@ const Blog = () => {
 
       {/* Blog Grid */}
       <section className="py-12 relative z-10">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-4 sm:px-6">
           {loading ? (
             <div className="text-center py-20">
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-500 mx-auto"></div>
@@ -218,7 +218,7 @@ const Blog = () => {
           ) : (
             <>
               {/* Blogs Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {filteredBlogsList.length > 0 ? (
                   filteredBlogsList.map((blog, index) => (
                     <FadeIn key={blog.id} delay={index * 0.05}>

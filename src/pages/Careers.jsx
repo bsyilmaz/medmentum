@@ -19,14 +19,14 @@ const Careers = () => {
       />
 
       {/* Job Listings Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-6 max-w-4xl">
+      <section className="py-12 sm:py-20">
+        <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
           <FadeIn>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+            <div className="text-center mb-12 sm:mb-16">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4 px-4">
                 Açık Pozisyonlar
               </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto px-4">
                 Size uygun pozisyonu bulun ve ekibimize katılın
               </p>
             </div>

@@ -21,7 +21,7 @@ const LoadingScreen = ({ onLoadingComplete }) => {
       >
         {/* Full Screen Logo */}
         <motion.img
-          src="/images/products/medmentumlogin.jpeg"
+          src="/images/products/medmentumloginn.png"
           alt="Medmentum"
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}

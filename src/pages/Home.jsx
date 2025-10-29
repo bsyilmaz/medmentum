@@ -55,14 +55,14 @@ const Home = () => {
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <FadeIn delay={0.2}>
-              <div className="mb-12 text-center">
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">
+              <div className="mb-8 sm:mb-12 text-center px-4">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-gray-900 dark:text-white leading-tight mb-4 sm:mb-6">
                   Sağlık Hizmetlerini
                 </h1>
-                <div className="h-20 md:h-24 flex justify-center items-center">
+                <div className="h-16 sm:h-20 md:h-24 flex justify-center items-center">
                   <MorphingText 
                     texts={['Dönüştürüyoruz', 'Yeniliyoruz', 'İyileştiriyoruz', 'Geliştiriyoruz']}
-                    className="text-5xl md:text-6xl lg:text-7xl h-auto leading-none text-gray-900 dark:text-white"
+                    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl h-auto leading-none text-gray-900 dark:text-white"
                   />
                 </div>
               </div>
@@ -73,7 +73,7 @@ const Home = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.6 }}
-                className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-12 leading-relaxed text-center"
+                className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-8 sm:mb-12 leading-relaxed text-center px-4"
               >
                 Akıllı yazılım çözümlerimizle sağlık hizmetlerini yeniden tanımlıyoruz.
                 Yapay zekâ destekli teşhis, gerçek zamanlı veri analizi ve insan odaklı bakım deneyimiyle sağlıkta yeni bir dönemi başlatıyoruz.
@@ -85,24 +85,24 @@ const Home = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.6 }}
-                className="flex flex-col sm:flex-row gap-4 justify-center"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4"
               >
-                <Link to="/products">
+                <Link to="/products" className="w-full sm:w-auto">
                   <Button 
                     size="lg" 
-                    className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white rounded-full font-bold text-base shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 transition-all duration-300"
+                    className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white rounded-full font-bold text-sm sm:text-base shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 transition-all duration-300"
                   >
-                    <span className="flex items-center gap-2">
+                    <span className="flex items-center justify-center gap-2">
                       Hemen Başlayın
                       <ArrowRight size={18} />
                     </span>
                   </Button>
                 </Link>
-                <Link to="/contact">
+                <Link to="/contact" className="w-full sm:w-auto">
                   <Button 
                     size="lg" 
                     variant="outline" 
-                    className="px-8 py-4 text-base font-semibold border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-full transition-all duration-300"
+                    className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-full transition-all duration-300"
                   >
                     Teklif Al
                   </Button>
@@ -140,16 +140,16 @@ const Home = () => {
       </section>
 
       {/* Features Section - Neden Medmentum */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="container mx-auto px-6 relative z-10">
+      <section className="relative py-12 sm:py-20 overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <FadeIn>
-            <div className="text-center mb-16">
+            <div className="text-center mb-12 sm:mb-16">
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="text-4xl md:text-5xl font-extrabold mb-6 text-gray-900 dark:text-white"
+                className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 sm:mb-6 text-gray-900 dark:text-white px-4"
               >
                 Neden <span style={{ color: '#401268', textShadow: '-1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white' }}>Medmentum?</span>
               </motion.h2>
@@ -158,16 +158,16 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2, duration: 0.6 }}
-                className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed"
+                className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4"
               >
                 Sağlık teknolojisinde devrim yaratan özellikler ve yenilikçi çözümler
               </motion.p>
             </div>
           </FadeIn>
 
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-7xl mx-auto px-2 sm:px-0">
             {/* Ana özellikler - Grid layout */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
               {[
                 {
                   title: "AI Destekli Teşhis",
@@ -224,7 +224,7 @@ const Home = () => {
             </div>
 
             {/* Alt özellikler - Modern card layout */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
               {/* Entegrasyon & Uyumluluk */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -234,7 +234,7 @@ const Home = () => {
                 className="relative group"
               >
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
-                <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-2xl p-8 border border-gray-200/50 dark:border-gray-700/50">
+                <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-gray-200/50 dark:border-gray-700/50">
                   <div className="flex items-center mb-6">
                     <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mr-4">
                       <Plug className="text-white" size={24} />
@@ -287,7 +287,7 @@ const Home = () => {
                 className="relative group"
               >
                 <div className="absolute -inset-1 bg-gradient-to-r from-green-500 to-teal-500 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
-                <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-2xl p-8 border border-gray-200/50 dark:border-gray-700/50">
+                <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-gray-200/50 dark:border-gray-700/50">
                   <div className="flex items-center mb-6">
                     <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-500 rounded-xl flex items-center justify-center mr-4">
                       <Server className="text-white" size={24} />

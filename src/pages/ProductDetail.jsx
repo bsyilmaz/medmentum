@@ -293,22 +293,22 @@ const ProductDetail = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="py-12">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="py-8 sm:py-12">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <FadeIn>
               <div>
-                <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
                   {product.name}
                 </h1>
-                <p className="text-xl text-gray-600 mb-8">
+                <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8">
                   {product.long_description}
                 </p>
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-full font-semibold shadow-lg shadow-primary-500/30"
+                    className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-full font-semibold shadow-lg shadow-primary-500/30 text-sm sm:text-base"
                   >
                     Demo Talep Et
                   </motion.button>
@@ -316,7 +316,7 @@ const ProductDetail = () => {
                     href="/contact"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-8 py-4 border-2 border-primary-500 text-primary-600 rounded-full font-semibold hover:bg-primary-50 transition-colors"
+                    className="w-full sm:w-auto text-center px-6 sm:px-8 py-3 sm:py-4 border-2 border-primary-500 text-primary-600 rounded-full font-semibold hover:bg-primary-50 transition-colors text-sm sm:text-base"
                   >
                     İletişime Geç
                   </motion.a>
@@ -339,10 +339,10 @@ const ProductDetail = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-primary-50">
-        <div className="container mx-auto px-6">
+      <section className="py-12 sm:py-20 bg-gradient-to-br from-gray-50 to-primary-50">
+        <div className="container mx-auto px-4 sm:px-6">
           <FadeIn>
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12">
               Neden <span className="text-gradient">{product.name}</span>?
             </h2>
           </FadeIn>
@@ -366,14 +366,14 @@ const ProductDetail = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-6">
+      <section className="py-12 sm:py-20">
+        <div className="container mx-auto px-4 sm:px-6">
           <FadeIn>
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12">
               Özellikler
             </h2>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-6xl mx-auto">
             {product.features?.map((feature, index) => (
               <FadeIn key={index} delay={index * 0.05}>
                 <motion.div
@@ -441,21 +441,21 @@ const ProductDetail = () => {
       )}
 
       {/* CTA Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-6">
+      <section className="py-12 sm:py-20">
+        <div className="container mx-auto px-4 sm:px-6">
           <FadeIn>
-            <div className="bg-gradient-to-br from-primary-500 to-secondary-500 rounded-3xl p-12 text-center text-white">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <div className="bg-gradient-to-br from-primary-500 to-secondary-500 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 text-center text-white">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
                 {product.name} ile Tanışın
               </h2>
-              <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+              <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 max-w-2xl mx-auto opacity-90">
                 Daha fazla bilgi almak ve demo talep etmek için bizimle iletişime geçin
               </p>
-              <div className="flex flex-wrap gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-lg mx-auto">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-white text-primary-600 rounded-full font-semibold shadow-lg"
+                  className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-primary-600 rounded-full font-semibold shadow-lg text-sm sm:text-base"
                 >
                   Ücretsiz Demo
                 </motion.button>
@@ -463,7 +463,7 @@ const ProductDetail = () => {
                   href="/contact"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-primary-600 transition-colors"
+                  className="w-full sm:w-auto text-center px-6 sm:px-8 py-3 sm:py-4 border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-primary-600 transition-colors text-sm sm:text-base"
                 >
                   Satış Ekibi ile Görüş
                 </motion.a>

@@ -6,14 +6,14 @@ const Footer = () => {
 
   return (
     <footer className="bg-gray-900 dark:bg-black text-gray-300 dark:text-gray-400">
-      <div className="container mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
           {/* Company Info */}
           <div className="space-y-4">
             <img 
               src="/images/products/medmentum.png" 
               alt="Medmentum" 
-              className="h-10 w-auto object-contain"
+              className="h-8 sm:h-10 w-auto object-contain"
             />
             <p className="text-sm">
               Sağlık ve teknoloji alanında yenilikçi çözümler sunuyoruz.
@@ -120,7 +120,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 dark:border-gray-900 mt-12 pt-8 text-center text-sm">
+        <div className="border-t border-gray-800 dark:border-gray-900 mt-8 sm:mt-12 pt-6 sm:pt-8 text-center text-xs sm:text-sm">
           <p>© {currentYear} Medmentum. Tüm hakları saklıdır.</p>
         </div>
       </div>

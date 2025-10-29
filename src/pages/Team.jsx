@@ -36,7 +36,7 @@ const Team = () => {
   ]
 
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen py-12 sm:py-20">
       <SEO 
         title="Ekibimiz | Uzman Doktorlar ve Teknoloji Liderleri"
         description="Medmentum ekibi; deneyimli doktorlar, yazılım mimarları ve sağlık teknolojisi uzmanlarından oluşuyor. Sağlık ve teknoloji alanında 15+ yıl deneyim."
@@ -51,13 +51,13 @@ const Team = () => {
 
 
       {/* Page Header */}
-      <section className="relative z-10 pt-12 pb-8">
-        <div className="container mx-auto px-6">
+      <section className="relative z-10 pt-8 sm:pt-12 pb-6 sm:pb-8">
+        <div className="container mx-auto px-4 sm:px-6">
           <FadeIn>
-            <h1 className="text-3xl md:text-4xl font-bold text-center mb-4">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-3 sm:mb-4 px-4">
               Ekibimizle <span style={{ color: '#401268', textShadow: '-1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white' }}>Tanışın</span>
             </h1>
-            <p className="text-center text-gray-600 max-w-2xl mx-auto">
+            <p className="text-center text-sm sm:text-base text-gray-600 max-w-2xl mx-auto px-4">
               Sağlık teknolojilerinin geleceğini şekillendiren ekibimiz
             </p>
           </FadeIn>
@@ -65,9 +65,9 @@ const Team = () => {
       </section>
 
       {/* Team Grid */}
-      <section className="py-12">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="py-8 sm:py-12">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {team.map((member, index) => (
               <ProfileCard 
                 key={index} 

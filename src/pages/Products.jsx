@@ -114,7 +114,7 @@ const Products = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                     viewport={{ once: true }}
-                    className="grid lg:grid-cols-2 gap-8 items-start"
+                    className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start"
                   >
                     {/* Sol: MAKO Fotoğrafı */}
                     <div className="flex items-start justify-center">
@@ -128,7 +128,7 @@ const Products = () => {
                     {/* Sağ: Terminal + Açıklama + Buton */}
                     <div className="space-y-6">
                       {/* Terminal */}
-                      <Terminal className="w-full">
+                      <Terminal className="w-full overflow-x-auto">
                         <TypingAnimation duration={30}>$ mako.init()</TypingAnimation>
                         <AnimatedSpan className="text-blue-400">→ Sistem başlatılıyor...</AnimatedSpan>
                         <AnimatedSpan className="text-green-400">✓ AI Motor yüklendi</AnimatedSpan>
@@ -148,21 +148,21 @@ const Products = () => {
                       {/* Açıklama */}
                       <div className="relative">
                         <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 blur-3xl" />
-                        <p className="relative text-xl md:text-2xl font-bold text-gray-900 dark:text-white leading-relaxed">
+                        <p className="relative text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-gray-900 dark:text-white leading-relaxed">
                           {product.description}
                         </p>
                       </div>
 
                       {/* Buton */}
                       <div className="flex justify-start">
-                        <Link to="/products/mako">
+                        <Link to="/products/mako" className="w-full sm:w-auto">
                           <HoverBorderGradient
-                            containerClassName="rounded-full"
+                            containerClassName="rounded-full w-full sm:w-auto"
                             as="button"
-                            className="dark:bg-black bg-white text-black dark:text-white px-8 py-4 text-base font-bold"
+                            className="dark:bg-black bg-white text-black dark:text-white px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-bold w-full sm:w-auto"
                             duration={3}
                           >
-                            <span className="flex items-center gap-2">
+                            <span className="flex items-center justify-center gap-2">
                               <Sparkles className="w-4 h-4" />
                               Detaylı İncele
                               <ArrowRight className="w-4 h-4" />

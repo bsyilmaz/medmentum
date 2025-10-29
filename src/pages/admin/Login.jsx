@@ -33,7 +33,26 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      
+      {/* Corner glow accents */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: [0.15, 0.3, 0.15], scale: [0.95, 1, 0.95] }}
+        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+        className="pointer-events-none absolute -top-20 -left-20 w-64 h-64 bg-primary-500/30 blur-3xl rounded-full"
+      />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: [0.1, 0.25, 0.1], scale: [0.95, 1.05, 0.95] }}
+        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+        className="pointer-events-none absolute -bottom-24 -right-24 w-72 h-72 bg-secondary-500/30 blur-3xl rounded-full"
+      />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: [0.08, 0.2, 0.08], scale: [0.9, 1, 0.9] }}
+        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+        className="pointer-events-none absolute top-1/2 -translate-y-1/2 -left-10 w-40 h-40 bg-accent-500/20 blur-3xl rounded-full"
+      />
+       
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

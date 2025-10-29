@@ -55,7 +55,7 @@ const Team = () => {
         <div className="container mx-auto px-6">
           <FadeIn>
             <h1 className="text-3xl md:text-4xl font-bold text-center mb-4">
-              Ekibimizle <span className="text-gradient">Tanışın</span>
+              Ekibimizle <span style={{ color: '#401268' }}>Tanışın</span>
             </h1>
             <p className="text-center text-gray-600 max-w-2xl mx-auto">
               Sağlık teknolojilerinin geleceğini şekillendiren ekibimiz

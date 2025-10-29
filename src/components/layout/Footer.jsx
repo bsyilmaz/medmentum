@@ -10,9 +10,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold text-white text-gradient">
-              Medmentum
-            </h3>
+            <img 
+              src="/images/products/medmentum.png" 
+              alt="Medmentum" 
+              className="h-10 w-auto object-contain"
+            />
             <p className="text-sm">
               Sağlık ve teknoloji alanında yenilikçi çözümler sunuyoruz.
             </p>

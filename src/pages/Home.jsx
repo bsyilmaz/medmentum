@@ -121,7 +121,7 @@ const Home = () => {
                 transition={{ duration: 0.6 }}
                 className="text-4xl md:text-5xl font-extrabold mb-6 text-gray-900 dark:text-white"
               >
-                Neden <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">Medmentum?</span>
+                Neden <span style={{ color: '#401268' }}>Medmentum?</span>
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}

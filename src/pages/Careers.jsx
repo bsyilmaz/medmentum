@@ -6,6 +6,7 @@ import FadeIn from '../components/animations/FadeIn'
 import SEO from '../components/SEO'
 import Particles from '../components/animations/Particles'
 import { jobListings } from '../data/jobListings'
+import Footer from '../components/layout/Footer'
 
 const Careers = () => {
   const navigate = useNavigate()
@@ -104,6 +105,8 @@ const Careers = () => {
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   )
 }

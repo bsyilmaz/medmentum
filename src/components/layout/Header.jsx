@@ -111,7 +111,7 @@ const Header = () => {
           <div className="hidden md:flex items-center space-x-4">
             <AnimatedThemeToggler />
             <Button size="sm">
-              Başlayın
+              Demo Talep Et
             </Button>
           </div>
 
@@ -152,7 +152,7 @@ const Header = () => {
             ))}
             <div className="mt-4 px-4">
               <Button size="sm" className="w-full">
-                Başlayın
+                Demo Talep Et
               </Button>
             </div>
           </motion.div>

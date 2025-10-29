@@ -373,36 +373,6 @@ const Products = () => {
         )
       })}
 
-      {/* CTA Section */}
-      <section className="relative py-20 overflow-hidden bg-gradient-to-br from-primary-600 via-purple-600 to-pink-600">
-        
-        <div className="container mx-auto px-6 relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-white"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Sağlıkta Dijital Dönüşüme Hazır mısınız?
-            </h2>
-            <p className="text-xl mb-8 opacity-90">
-              Ürünlerimiz hakkında daha fazla bilgi almak ve demo talep etmek için bizimle iletişime geçin
-            </p>
-            <Link to="/contact">
-              <HoverBorderGradient
-                containerClassName="rounded-full"
-                as="button"
-                className="bg-white text-primary-600 px-10 py-5 text-lg font-bold"
-                duration={2}
-              >
-                İletişime Geç
-              </HoverBorderGradient>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
     </div>
   )
 }

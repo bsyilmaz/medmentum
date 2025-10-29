@@ -1,9 +1,11 @@
+import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import { AuthProvider } from './contexts/AuthContext'
 import Layout from './components/layout/Layout'
 import ProtectedRoute from './components/admin/ProtectedRoute'
 import ScrollToTop from './components/ScrollToTop'
+import LoadingScreen from './components/LoadingScreen'
 
 // Public pages
 import Home from './pages/Home'
@@ -24,6 +26,25 @@ import BlogManagement from './pages/admin/BlogManagement'
 import UpdateManagement from './pages/admin/UpdateManagement'
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    // Sayfa ilk yüklendiğinde loading screen'i göster
+    const hasVisited = sessionStorage.getItem('hasVisited')
+    if (hasVisited) {
+      setIsLoading(false)
+    }
+  }, [])
+
+  const handleLoadingComplete = () => {
+    sessionStorage.setItem('hasVisited', 'true')
+    setIsLoading(false)
+  }
+
+  if (isLoading) {
+    return <LoadingScreen onLoadingComplete={handleLoadingComplete} />
+  }
+
   return (
     <HelmetProvider>
       <AuthProvider>

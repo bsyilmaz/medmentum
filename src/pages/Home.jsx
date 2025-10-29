@@ -50,7 +50,7 @@ const Home = () => {
       <OrganizationSchema />
       <WebsiteSchema />
       {/* Hero Section */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden pt-32">
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center max-w-4xl mx-auto">

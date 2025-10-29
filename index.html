@@ -8,6 +8,16 @@
     <meta name="keywords" content="sağlık, teknoloji, AI, telemedicine, dijital sağlık, tıp" />
     <meta name="author" content="Medmentum" />
     <title>Medmentum - Sağlıkta Teknolojinin Geleceği</title>
+    
+    <!-- Theme loader - prevents flash of wrong theme -->
+    <script>
+      (function() {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

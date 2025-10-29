@@ -55,14 +55,14 @@ const Home = () => {
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <FadeIn delay={0.2}>
-              <div className="mb-8 text-center">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight mb-4">
+              <div className="mb-12 text-center">
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 dark:text-white leading-tight mb-6">
                   Sağlık Hizmetlerini
                 </h1>
-                <div className="h-16 md:h-20 flex justify-center items-center">
+                <div className="h-20 md:h-24 flex justify-center items-center">
                   <MorphingText 
                     texts={['Dönüştürüyoruz', 'Yeniliyoruz', 'İyileştiriyoruz', 'Geliştiriyoruz']}
-                    className="text-4xl md:text-5xl lg:text-6xl h-auto leading-none text-gray-900 dark:text-white"
+                    className="text-5xl md:text-6xl lg:text-7xl h-auto leading-none text-gray-900 dark:text-white"
                   />
                 </div>
               </div>
@@ -73,7 +73,7 @@ const Home = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.6 }}
-                className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed text-center"
+                className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-12 leading-relaxed text-center"
               >
                 Akıllı yazılım çözümlerimizle sağlık hizmetlerini yeniden tanımlıyoruz.
                 Yapay zekâ destekli teşhis, gerçek zamanlı veri analizi ve insan odaklı bakım deneyimiyle sağlıkta yeni bir dönemi başlatıyoruz.
@@ -117,7 +117,7 @@ const Home = () => {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.6 }}
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20"
+          className="absolute bottom-32 left-1/2 transform -translate-x-1/2 z-20"
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}

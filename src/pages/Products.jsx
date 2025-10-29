@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { ArrowRight, Check, Sparkles, Activity, Database } from 'lucide-react'
+import { ArrowRight, Check, Sparkles } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import { BreadcrumbSchema } from '../components/StructuredData'
@@ -50,88 +50,6 @@ const Products = () => {
         { label: 'İşlem Süresi', value: '<2 dk' },
         { label: 'Dil Desteği', value: '15+' },
         { label: 'Hasta Memnuniyeti', value: '95%' }
-      ]
-    },
-    {
-      id: 2,
-      name: 'Telemedicine Suite',
-      tagline: 'Kapsamlı Telesağlık Çözümü',
-      description: 'Uzaktan hasta bakımı ve konsültasyon için eksiksiz bir platform. Video görüşmeler, randevu yönetimi, e-reçete ve güvenli mesajlaşma özelliklerini tek bir çatı altında toplayan telesağlık çözümümüz, hastalarınızla daha yakın ilişkiler kurmanızı sağlar.',
-      longDescription: 'Telemedicine Suite, modern sağlık hizmeti sunumunu yeniden tanımlıyor. Yüksek kaliteli video görüşmeler, akıllı randevu planlama, elektronik reçete yazma ve güvenli hasta mesajlaşması gibi özellikleriyle, hekimler ve hastalar arasındaki mesafeyi ortadan kaldırıyoruz. Mobil uyumlu tasarımı sayesinde hastalarınız her yerden erişim sağlayabilir.',
-      image_url: 'https://images.unsplash.com/photo-1584982751601-97dcc096659c?w=1200',
-      icon: Activity,
-      color: 'from-green-500 to-teal-600',
-      features: [
-        {
-          title: 'HD Video Calls',
-          description: 'Kristal netliğinde video ve ses kalitesi'
-        },
-        {
-          title: 'Smart Scheduling',
-          description: 'Otomatik randevu yönetimi ve hatırlatma sistemi'
-        },
-        {
-          title: 'E-Prescriptions',
-          description: 'Dijital reçete yazma ve eczane entegrasyonu'
-        },
-        {
-          title: 'Secure Messaging',
-          description: 'HIPAA uyumlu güvenli hasta-hekim mesajlaşması'
-        },
-        {
-          title: 'Patient Portal',
-          description: 'Hastalar için özel web ve mobil portal'
-        },
-        {
-          title: 'Insurance Integration',
-          description: 'Sigorta şirketleri ile otomatik faturalandırma'
-        }
-      ],
-      stats: [
-        { label: 'Video Kalitesi', value: '4K HDR' },
-        { label: 'Bağlantı Süresi', value: '<2 sn' },
-        { label: 'Hasta Memnuniyeti', value: '96%' }
-      ]
-    },
-    {
-      id: 3,
-      name: 'Health Records System',
-      tagline: 'Elektronik Sağlık Kayıtları Sistemi',
-      description: 'Hasta verilerini merkezi bir platformda güvenle saklayın ve yönetin. Dijital sağlık kayıtları, gelişmiş veri analitiği ve API entegrasyonları ile hastalarınızın sağlık geçmişine anında erişin. HL7 ve FHIR standartlarını destekleyen modern bir EHR sistemi.',
-      longDescription: 'Health Records System, sağlık kurumlarının hasta verilerini dijital ortamda güvenle saklamalarını ve yönetmelerini sağlayan kapsamlı bir platformdur. Gelişmiş arama ve filtreleme özellikleri, özelleştirilebilir şablonlar ve akıllı raporlama araçları ile iş akışlarınızı optimize edin. Blockchain teknolojisi ile veri bütünlüğünü garanti altına alıyoruz.',
-      image_url: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200',
-      icon: Database,
-      color: 'from-indigo-500 to-pink-600',
-      features: [
-        {
-          title: 'Digital Records',
-          description: 'Sınırsız hasta kaydı ve doküman depolama'
-        },
-        {
-          title: 'Quick Access',
-          description: 'Gelişmiş arama ile saniyeler içinde kayıt bulma'
-        },
-        {
-          title: 'Data Analytics',
-          description: 'AI destekli veri analizi ve trend raporları'
-        },
-        {
-          title: 'HL7 & FHIR Support',
-          description: 'Uluslararası sağlık veri standartlarını destekler'
-        },
-        {
-          title: 'Blockchain Security',
-          description: 'Veri bütünlüğü için blockchain teknolojisi'
-        },
-        {
-          title: 'Custom Templates',
-          description: 'Her uzmanlık alanı için özelleştirilebilir formlar'
-        }
-      ],
-      stats: [
-        { label: 'Veri Güvenliği', value: '256-bit' },
-        { label: 'Uptime', value: '99.9%' },
-        { label: 'API Response', value: '<100ms' }
       ]
     }
   ]

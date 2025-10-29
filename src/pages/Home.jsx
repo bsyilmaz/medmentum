@@ -87,15 +87,17 @@ const Home = () => {
                 transition={{ delay: 0.6, duration: 0.6 }}
                 className="flex flex-col sm:flex-row gap-4 justify-center"
               >
-                <Button 
-                  size="lg" 
-                  className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white rounded-full font-bold text-base shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 transition-all duration-300"
-                >
-                  <span className="flex items-center gap-2">
-                    Hemen Başlayın
-                    <ArrowRight size={18} />
-                  </span>
-                </Button>
+                <Link to="/products">
+                  <Button 
+                    size="lg" 
+                    className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white rounded-full font-bold text-base shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 transition-all duration-300"
+                  >
+                    <span className="flex items-center gap-2">
+                      Hemen Başlayın
+                      <ArrowRight size={18} />
+                    </span>
+                  </Button>
+                </Link>
                 <Link to="/contact">
                   <Button 
                     size="lg" 

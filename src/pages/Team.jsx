@@ -79,30 +79,6 @@ const Team = () => {
         </div>
       </section>
 
-      {/* Join Us Section */}
-      <section className="py-20 bg-gradient-to-br from-primary-50 to-secondary-50">
-        <div className="container mx-auto px-6">
-          <FadeIn>
-            <div className="text-center max-w-3xl mx-auto">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Ekibimize <span className="text-gradient">Katılın</span>
-              </h2>
-              <p className="text-xl text-gray-600 mb-8">
-                Sağlık teknolojilerinde devrim yaratmak için aramıza katılın. 
-                Açık pozisyonlarımızı görüntüleyin.
-              </p>
-              <motion.a
-                href="mailto:kariyer@medmentum.com"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-block px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-full font-semibold text-lg shadow-lg shadow-primary-500/30"
-              >
-                Başvuru Yapın
-              </motion.a>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
     </div>
   )
 }

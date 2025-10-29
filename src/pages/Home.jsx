@@ -50,7 +50,7 @@ const Home = () => {
       <OrganizationSchema />
       <WebsiteSchema />
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
@@ -112,8 +112,36 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Features Section - Neden Medmentum */}
-        <div className="container mx-auto px-6 relative z-10 py-32">
+        {/* Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.2, duration: 0.6 }}
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20"
+        >
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            className="flex flex-col items-center gap-2 cursor-pointer"
+            onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
+          >
+            <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">Keşfet</span>
+            <motion.div
+              className="w-6 h-10 border-2 border-gray-400 dark:border-gray-600 rounded-full flex items-start justify-center p-2"
+            >
+              <motion.div
+                animate={{ y: [0, 12, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                className="w-1.5 h-1.5 bg-gray-600 dark:bg-gray-400 rounded-full"
+              />
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* Features Section - Neden Medmentum */}
+      <section className="relative py-20 overflow-hidden">
+        <div className="container mx-auto px-6 relative z-10">
           <FadeIn>
             <div className="text-center mb-16">
               <motion.h2
@@ -305,7 +333,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-
       </section>
 
       {/* Quote Modal */}

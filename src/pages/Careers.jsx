@@ -4,34 +4,13 @@ import { Briefcase, MapPin, Clock, ArrowRight } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import FadeIn from '../components/animations/FadeIn'
 import SEO from '../components/SEO'
-import Particles from '../components/animations/Particles'
 import { jobListings } from '../data/jobListings'
-import Footer from '../components/layout/Footer'
 
 const Careers = () => {
   const navigate = useNavigate()
 
   return (
     <div className="relative">
-      <div className="fixed inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-purple-950 -z-10">
-        <Particles count={50} />
-        <motion.div
-          animate={{
-            scale: [1, 1.1, 1],
-            rotate: [0, 90, 0],
-          }}
-          transition={{ duration: 20, repeat: Infinity }}
-          className="absolute top-20 left-20 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30"
-        />
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, -90, 0],
-          }}
-          transition={{ duration: 25, repeat: Infinity }}
-          className="absolute bottom-20 right-20 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30"
-        />
-      </div>
       <SEO 
         title="Kariyer - Medmentum | Sağlık Teknolojisinde Kariyer Fırsatları"
         description="Medmentum'da sağlık teknolojisi alanında kariyer fırsatları. AI, yazılım geliştirme, veri bilimi ve daha fazla alanda açık pozisyonlar."
@@ -105,8 +84,6 @@ const Careers = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   )
 }

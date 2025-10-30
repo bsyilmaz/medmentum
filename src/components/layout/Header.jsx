@@ -39,13 +39,17 @@ const Header = () => {
     { name: 'İletişim', path: '/contact' },
   ]
 
+  const headerBackground = isMobileMenuOpen
+    ? 'bg-white dark:bg-gray-900 shadow-lg'
+    : (isScrolled ? 'glass-effect shadow-lg' : 'bg-transparent')
+
   return (
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`
         fixed top-0 left-0 right-0 z-50 transition-all duration-300
-        ${isScrolled || isMobileMenuOpen ? 'glass-effect shadow-lg' : 'bg-transparent'}
+        ${headerBackground}
       `}
     >
       <nav className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
@@ -151,8 +155,8 @@ const Header = () => {
             exit={{ opacity: 0 }}
             className="md:hidden fixed inset-0 z-40"
           >
-            {/* Backdrop */}
-            <div className="absolute inset-0 bg-white/95 dark:bg-gray-900/95" />
+            {/* Backdrop - fully opaque */}
+            <div className="absolute inset-0 bg-white dark:bg-gray-900" />
 
             {/* Menu Panel */}
             <motion.div

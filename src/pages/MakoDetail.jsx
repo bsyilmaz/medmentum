@@ -250,7 +250,7 @@ function Scene3Simulation() {
       {/* DESKTOP/TABLET: Yan yana sticky layout */}
       <div className="hidden md:grid md:grid-cols-2 relative h-[600vh]">
         {/* SOL BÖLÜM: YAPIŞKAN 3D SAHNE */}
-        <div className="sticky top-0 h-screen">
+        <div className="sticky top-0 h-screen flex items-center justify-center z-10">
           <MakoScene />
         </div>
 

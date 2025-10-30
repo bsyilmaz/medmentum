@@ -18,6 +18,18 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isMobileMenuOpen])
+
   const navItems = [
     { name: 'Ana Sayfa', path: '/' },
     { name: 'Ürünler', path: '/products' },
@@ -33,7 +45,7 @@ const Header = () => {
       animate={{ y: 0 }}
       className={`
         fixed top-0 left-0 right-0 z-50 transition-all duration-300
-        ${isScrolled ? 'glass-effect shadow-lg' : 'bg-transparent'}
+        ${isScrolled || isMobileMenuOpen ? 'glass-effect shadow-lg' : 'bg-transparent'}
       `}
     >
       <nav className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
@@ -123,42 +135,55 @@ const Header = () => {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 text-gray-700 dark:text-gray-300"
+              aria-label="Menüyü Aç/Kapat"
+              aria-expanded={isMobileMenuOpen}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Overlay + Menu */}
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="md:hidden mt-4 pb-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="md:hidden fixed inset-0 z-40"
           >
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`
-                  block py-3 px-4 rounded-lg
-                  ${location.pathname === item.path 
-                    ? 'bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 font-semibold' 
-                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'}
-                `}
-              >
-                {item.name}
-              </Link>
-            ))}
-            <div className="mt-4 px-4">
-              <Link to="/contact#demo">
-                <Button size="sm" className="w-full">
-                  Demo Talep Et
-                </Button>
-              </Link>
-            </div>
+            {/* Backdrop */}
+            <div className="absolute inset-0 bg-white/95 dark:bg-gray-900/95" />
+
+            {/* Menu Panel */}
+            <motion.div
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.2 }}
+              className="relative z-50 mt-20 px-4 pb-6"
+            >
+              {navItems.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`
+                    block py-3 px-4 rounded-lg
+                    ${location.pathname === item.path 
+                      ? 'bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 font-semibold' 
+                      : 'text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800'}
+                  `}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              <div className="mt-4 px-4">
+                <Link to="/contact#demo">
+                  <Button size="sm" className="w-full">
+                    Demo Talep Et
+                  </Button>
+                </Link>
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </nav>

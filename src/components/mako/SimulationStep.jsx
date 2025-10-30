@@ -8,7 +8,10 @@ export function SimulationStep({ stepName, title, text, description, icon: Icon,
   const setStep = useSimulationStore((state) => state.setStep)
 
   const { ref, inView } = useInView({
-    threshold: 0.25, // daha erken tetikle: öğenin %25'i görünür olunca
+    threshold: 0.1,
+    root: null,
+    rootMargin: '-30% 0px -60% 0px',
+    triggerOnce: false,
   })
 
   useEffect(() => {

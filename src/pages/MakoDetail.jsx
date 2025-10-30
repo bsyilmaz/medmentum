@@ -248,7 +248,7 @@ function Scene3Simulation() {
   return (
     <section className="relative bg-[#101828]">
       {/* DESKTOP: Orijinal yan yana sticky layout (5c225b9) */}
-      <div className="hidden lg:block relative h-[600vh]">
+      <div className="hidden lg:block relative h-[700vh]">
         {/* SOL BÖLÜM: YAPIŞKAN 3D SAHNE */}
         <div className="sticky top-0 h-screen w-1/2 float-left z-40 flex items-center justify-center">
           <MakoScene />

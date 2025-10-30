@@ -269,8 +269,8 @@ function Scene3Simulation() {
 
   return (
     <section className="relative bg-[#101828]">
-      {/* DESKTOP: Orijinal yan yana sticky layout (5c225b9) */}
-      <div ref={desktopSectionRef} className="hidden lg:block relative h-[700vh]">
+      {/* DESKTOP/TABLET: Orijinal yan yana sticky layout */}
+      <div ref={desktopSectionRef} className="hidden md:block relative h-[700vh]">
         {/* SOL BÖLÜM: YAPIŞKAN 3D SAHNE */}
         <div className="sticky top-0 h-screen w-1/2 float-left z-40 flex items-center justify-center">
           <MakoScene />
@@ -391,7 +391,7 @@ function Scene3Simulation() {
       </div>
 
       {/* MOBILE: Dikey sıralı layout */}
-      <div className="block lg:hidden py-12 px-4">
+      <div className="block md:hidden py-12 px-4">
         {/* Başlık */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

@@ -248,14 +248,14 @@ function Scene3Simulation() {
   return (
     <section className="relative bg-[#101828]">
       {/* DESKTOP: Yan yana sticky layout */}
-      <div className="hidden lg:block relative h-[600vh]">
+      <div className="hidden lg:grid lg:grid-cols-2 relative h-[600vh]">
         {/* SOL BÖLÜM: YAPIŞKAN 3D SAHNE */}
-        <div className="sticky top-0 h-screen w-1/2 float-left">
+        <div className="sticky top-0 h-screen">
           <MakoScene />
         </div>
 
         {/* SAĞ BÖLÜM: KAYAN ADIMLAR */}
-        <div className="absolute top-0 right-0 w-1/2 h-full">
+        <div className="relative h-full">
           {/* Başlık */}
           <div className="h-screen flex items-center justify-start px-12 lg:px-16">
             <motion.div

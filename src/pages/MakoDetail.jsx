@@ -22,7 +22,7 @@ import SEO from '../components/SEO'
 import { MakoScene } from '../components/mako/MakoScene'
 import { SimulationStep } from '../components/mako/SimulationStep'
 import { useSimulationStore } from '../hooks/useSimulationStore'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 
 const MakoDetail = () => {
   const resetSimulation = useSimulationStore((state) => state.resetSimulation)
@@ -245,10 +245,32 @@ function Scene2Reveal() {
 // SAHNE 3: SIMULATION - İnteraktif Deneyim (ÖDÜLLü KISIM)
 // ========================================
 function Scene3Simulation() {
+  const setStep = useSimulationStore((state) => state.setStep)
+  const desktopSectionRef = useRef(null)
+
+  // Scroll progress fallback: Desktop sahnede progress'e göre adımı senkronize et
+  const { scrollYProgress } = useScroll({
+    target: desktopSectionRef,
+    offset: ['start start', 'end end']
+  })
+
+  useEffect(() => {
+    const unsubscribe = scrollYProgress.on('change', (p) => {
+      // Header ~1 ekran, toplam ~7 ekran: 1 header + 5 adım + 1 çıktı
+      if (p < 0.18) return // header alanı, adımı zorlamıyoruz
+      if (p < 0.32) return setStep('input')
+      if (p < 0.46) return setStep('anamnesis')
+      if (p < 0.60) return setStep('vitals')
+      if (p < 0.74) return setStep('analysis')
+      return setStep('result')
+    })
+    return () => unsubscribe()
+  }, [scrollYProgress, setStep])
+
   return (
     <section className="relative bg-[#101828]">
       {/* DESKTOP: Orijinal yan yana sticky layout (5c225b9) */}
-      <div className="hidden lg:block relative h-[700vh]">
+      <div ref={desktopSectionRef} className="hidden lg:block relative h-[700vh]">
         {/* SOL BÖLÜM: YAPIŞKAN 3D SAHNE */}
         <div className="sticky top-0 h-screen w-1/2 float-left z-40 flex items-center justify-center">
           <MakoScene />

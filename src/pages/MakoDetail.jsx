@@ -247,8 +247,8 @@ function Scene2Reveal() {
 function Scene3Simulation() {
   return (
     <section className="relative bg-[#101828]">
-      {/* DESKTOP: Yan yana sticky layout */}
-      <div className="hidden lg:grid lg:grid-cols-2 relative h-[600vh]">
+      {/* DESKTOP/TABLET: Yan yana sticky layout */}
+      <div className="hidden md:grid md:grid-cols-2 relative h-[600vh]">
         {/* SOL BÖLÜM: YAPIŞKAN 3D SAHNE */}
         <div className="sticky top-0 h-screen">
           <MakoScene />
@@ -368,8 +368,8 @@ function Scene3Simulation() {
         </div>
       </div>
 
-      {/* MOBILE/TABLET: Dikey sıralı layout */}
-      <div className="block lg:hidden py-12 px-4">
+      {/* MOBILE: Dikey sıralı layout */}
+      <div className="block md:hidden py-12 px-4">
         {/* Başlık */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

@@ -18,7 +18,7 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Lock body scroll when mobile menu is open
+  // Disable body scroll while mobile menu is open to prevent background scrolling
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden'
@@ -39,17 +39,13 @@ const Header = () => {
     { name: 'İletişim', path: '/contact' },
   ]
 
-  const headerBackground = isMobileMenuOpen
-    ? 'bg-white dark:bg-gray-900 shadow-lg'
-    : (isScrolled ? 'glass-effect shadow-lg' : 'bg-transparent')
-
   return (
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`
         fixed top-0 left-0 right-0 z-50 transition-all duration-300
-        ${headerBackground}
+        ${isScrolled ? 'glass-effect shadow-lg' : 'bg-transparent'}
       `}
     >
       <nav className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
@@ -139,32 +135,21 @@ const Header = () => {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 text-gray-700 dark:text-gray-300"
-              aria-label="Menüyü Aç/Kapat"
-              aria-expanded={isMobileMenuOpen}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Overlay + Menu */}
+        {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="md:hidden fixed inset-0 z-40"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="md:hidden fixed inset-0 top-16 z-40 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm"
           >
-            {/* Backdrop - fully opaque */}
-            <div className="absolute inset-0 bg-white dark:bg-gray-900" />
-
-            {/* Menu Panel */}
-            <motion.div
-              initial={{ y: -20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.2 }}
-              className="relative z-50 mt-20 px-4 pb-6"
-            >
+            <div className="px-4 py-3 space-y-1">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
@@ -174,20 +159,20 @@ const Header = () => {
                     block py-3 px-4 rounded-lg
                     ${location.pathname === item.path 
                       ? 'bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 font-semibold' 
-                      : 'text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800'}
+                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'}
                   `}
                 >
                   {item.name}
                 </Link>
               ))}
-              <div className="mt-4 px-4">
+              <div className="pt-2">
                 <Link to="/contact#demo">
                   <Button size="sm" className="w-full">
                     Demo Talep Et
                   </Button>
                 </Link>
               </div>
-            </motion.div>
+            </div>
           </motion.div>
         )}
       </nav>

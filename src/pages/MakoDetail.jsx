@@ -378,7 +378,7 @@ function Scene3Simulation() {
           transition={{ duration: 0.8 }}
           className="text-center mb-12 px-4"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
             Triyaj Akışı Simülasyonu
           </h2>
           <p className="text-base sm:text-lg text-gray-400">
@@ -387,7 +387,7 @@ function Scene3Simulation() {
         </motion.div>
 
         {/* 3D Sahne (mobilde statik) */}
-        <div className="h-[300px] sm:h-[400px] mb-12">
+        <div className="h-[240px] sm:h-[340px] mb-10">
           <MakoScene />
         </div>
 
@@ -398,14 +398,14 @@ function Scene3Simulation() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-[#1a2332] rounded-2xl p-6 border border-gray-700"
+            className="bg-[#1a2332] rounded-xl p-4 border border-gray-700"
           >
             <div className="flex items-start gap-4 mb-4">
               <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
                 <MessageSquare className="text-blue-400" size={24} />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white mb-2">Adım 1: Hasta Girdisi</h3>
+                <h3 className="text-lg font-bold text-white mb-1.5">Adım 1: Hasta Girdisi</h3>
                 <p className="text-blue-400 text-sm mb-2">'Şiddetli göğüs ağrısı ve nefes darlığı...'</p>
                 <p className="text-gray-400 text-sm">Hasta kioskta semptomlarını girer. Dokunmatik ekran veya sesli komutla iletişim kurar.</p>
               </div>
@@ -416,14 +416,14 @@ function Scene3Simulation() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-[#1a2332] rounded-2xl p-6 border border-gray-700"
+            className="bg-[#1a2332] rounded-xl p-4 border border-gray-700"
           >
             <div className="flex items-start gap-4 mb-4">
               <div className="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
                 <Activity className="text-purple-400" size={24} />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white mb-2">Adım 2: Akıllı Anamnez</h3>
+                <h3 className="text-lg font-bold text-white mb-1.5">Adım 2: Akıllı Anamnez</h3>
                 <p className="text-purple-400 text-sm mb-2">'Ağrı sol kola vuruyor mu? → Evet'</p>
                 <p className="text-gray-400 text-sm">Yapay zeka, semptoma özel akıllı sorular sorar. Her cevap, algoritmanın hassasiyetini artırır.</p>
               </div>
@@ -434,14 +434,14 @@ function Scene3Simulation() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-[#1a2332] rounded-2xl p-6 border border-gray-700"
+            className="bg-[#1a2332] rounded-xl p-4 border border-gray-700"
           >
             <div className="flex items-start gap-4 mb-4">
               <div className="w-12 h-12 bg-pink-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
                 <Heart className="text-pink-400" size={24} />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white mb-2">Adım 3: Vital Veri Toplama</h3>
+                <h3 className="text-lg font-bold text-white mb-1.5">Adım 3: Vital Veri Toplama</h3>
                 <p className="text-pink-400 text-sm mb-2">SPO2: %91 | Nabız: 115 (Aritmik)</p>
                 <p className="text-gray-400 text-sm">Entegre sensörler vital verileri otomatik olarak alır. İnsan hatasına yer yoktur.</p>
               </div>
@@ -452,14 +452,14 @@ function Scene3Simulation() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-[#1a2332] rounded-2xl p-6 border border-gray-700"
+            className="bg-[#1a2332] rounded-xl p-4 border border-gray-700"
           >
             <div className="flex items-start gap-4 mb-4">
               <div className="w-12 h-12 bg-teal-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
                 <Brain className="text-teal-400" size={24} />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white mb-2">Adım 4: AI Analizi</h3>
+                <h3 className="text-lg font-bold text-white mb-1.5">Adım 4: AI Analizi</h3>
                 <p className="text-teal-400 text-sm mb-2">Neural Network Çalışıyor...</p>
                 <p className="text-gray-400 text-sm">Tüm veri (semptomlar, anamnez, vitaller) anında yapay zeka modelinden geçer ve E.S.I. seviyesi hesaplanır.</p>
               </div>
@@ -470,14 +470,14 @@ function Scene3Simulation() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-[#1a2332] rounded-2xl p-6 border border-red-700"
+            className="bg-[#1a2332] rounded-xl p-4 border border-red-700"
           >
             <div className="flex items-start gap-4 mb-4">
               <div className="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
                 <AlertTriangle className="text-red-400" size={24} />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white mb-2">Adım 5: SONUÇ</h3>
+                <h3 className="text-lg font-bold text-white mb-1.5">Adım 5: SONUÇ</h3>
                 <p className="text-red-400 text-sm mb-2">E.S.I. SEVİYE 1 - KRİTİK</p>
                 <p className="text-gray-400 text-sm">Akut Miyokard Enfarktüsü Şüphesi. KIRMIZI ALAN. Personel anında bilgilendirildi.</p>
               </div>
@@ -492,24 +492,24 @@ function Scene3Simulation() {
             transition={{ duration: 0.8 }}
             className="mt-8"
           >
-            <div className="text-center space-y-4 bg-gradient-to-br from-[#1a2332] to-[#101828] p-6 sm:p-8 rounded-2xl border-2 border-[#319795] shadow-2xl">
+            <div className="text-center space-y-4 bg-gradient-to-br from-[#1a2332] to-[#101828] p-5 sm:p-8 rounded-2xl border-2 border-[#319795] shadow-2xl">
               <motion.p
                 animate={{ scale: [1, 1.05, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="text-4xl sm:text-5xl font-bold text-[#319795]"
+                className="text-3xl sm:text-4xl font-bold text-[#319795]"
               >
                 45 Saniye
               </motion.p>
-              <p className="text-lg sm:text-xl text-white font-semibold">Bu sürecin tamamı</p>
+              <p className="text-base sm:text-lg text-white font-semibold">Bu sürecin tamamı</p>
               
               <div className="h-px bg-gray-700 my-4" />
               
-              <p className="text-2xl sm:text-3xl text-gray-400">vs</p>
+              <p className="text-xl sm:text-2xl text-gray-400">vs</p>
               
               <div className="h-px bg-gray-700 my-4" />
               
-              <p className="text-4xl sm:text-5xl font-bold text-gray-500 line-through">5-7 Dakika</p>
-              <p className="text-lg sm:text-xl text-gray-500">Geleneksel hemşire triyajı</p>
+              <p className="text-3xl sm:text-4xl font-bold text-gray-500 line-through">5-7 Dakika</p>
+              <p className="text-base sm:text-lg text-gray-500">Geleneksel hemşire triyajı</p>
               
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -518,10 +518,10 @@ function Scene3Simulation() {
                 transition={{ delay: 0.3 }}
                 className="pt-6"
               >
-                <p className="text-2xl sm:text-3xl font-bold text-[#E53E3E]">
+                <p className="text-xl sm:text-2xl font-bold text-[#E53E3E]">
                   Kazanılan: 6 Dakika
                 </p>
-                <p className="text-base sm:text-lg text-gray-400 mt-2">
+                <p className="text-sm sm:text-base text-gray-400 mt-2">
                   Kalp krizinde bu, hayat demektir.
                 </p>
               </motion.div>

@@ -387,7 +387,7 @@ function Scene3Simulation() {
         </motion.div>
 
         {/* 3D Sahne (mobilde statik) */}
-        <div className="h-[240px] sm:h-[340px] mb-10">
+        <div className="h-[320px] sm:h-[360px] mb-8">
           <MakoScene />
         </div>
 

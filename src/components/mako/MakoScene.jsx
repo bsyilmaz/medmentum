@@ -56,7 +56,7 @@ export function MakoScene() {
   const Icon = config.icon
 
   return (
-    <div className="h-full w-full flex items-center justify-center p-6 sm:p-8">
+    <div className="h-full w-full flex items-center justify-center p-4 sm:p-8">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentStep}
@@ -67,7 +67,7 @@ export function MakoScene() {
           className="relative"
         >
           {/* Ana Kiosk Görseli */}
-          <div className="relative w-[240px] h-[420px] sm:w-[300px] sm:h-[500px] md:w-[400px] md:h-[600px] bg-gradient-to-b from-gray-800 to-gray-900 rounded-3xl shadow-2xl border-4 border-gray-700 overflow-hidden">
+          <div className="relative w-[200px] h-[320px] sm:w-[280px] sm:h-[460px] md:w-[400px] md:h-[600px] bg-gradient-to-b from-gray-800 to-gray-900 rounded-3xl shadow-2xl border-2 md:border-4 border-gray-700 overflow-hidden">
             
             {/* Ekran Alanı */}
             <motion.div
@@ -79,7 +79,7 @@ export function MakoScene() {
                 ]
               } : {}}
               transition={{ duration: 2, repeat: Infinity }}
-              className={`absolute top-6 sm:top-8 left-4 sm:left-6 right-4 sm:right-6 bottom-20 sm:bottom-24 ${config.bgColor} rounded-2xl border-2 border-gray-600 flex flex-col items-center justify-center p-4 sm:p-6 transition-all duration-500`}
+              className={`absolute top-4 sm:top-8 left-3 sm:left-6 right-3 sm:right-6 bottom-16 sm:bottom-24 ${config.bgColor} rounded-2xl border-2 border-gray-600 flex flex-col items-center justify-center p-3 sm:p-6 transition-all duration-500`}
             >
               {/* İkon */}
               <motion.div
@@ -89,7 +89,7 @@ export function MakoScene() {
                 } : {}}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                <Icon className={`w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 ${config.color} mb-3 sm:mb-4`} strokeWidth={1.5} />
+                <Icon className={`w-14 h-14 sm:w-24 sm:h-24 md:w-32 md:h-32 ${config.color} mb-2 sm:mb-4`} strokeWidth={1.5} />
               </motion.div>
 
               {/* Durum Metni */}
@@ -98,14 +98,14 @@ export function MakoScene() {
                   opacity: [0.7, 1, 0.7]
                 } : {}}
                 transition={{ duration: 2, repeat: Infinity }}
-                className={`text-base sm:text-lg md:text-xl font-bold ${config.color} text-center`}
+                className={`text-sm sm:text-lg md:text-xl font-bold ${config.color} text-center`}
               >
                 {config.label}
               </motion.p>
 
               {/* Veri Akış Animasyonu */}
               {config.pulse && (
-                <div className="mt-4 sm:mt-6 flex gap-2">
+                <div className="mt-3 sm:mt-6 flex gap-2">
                   {[0, 1, 2].map((i) => (
                     <motion.div
                       key={i}
@@ -131,7 +131,7 @@ export function MakoScene() {
                 backgroundColor: ['rgba(239, 68, 68, 0.2)', 'rgba(239, 68, 68, 0.5)', 'rgba(239, 68, 68, 0.2)']
               } : {}}
               transition={{ duration: 1.5, repeat: Infinity }}
-              className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 h-12 sm:h-16 bg-gray-700 rounded-xl border-2 border-gray-600 flex items-center justify-center"
+              className="absolute bottom-3 sm:bottom-6 left-3 sm:left-6 right-3 sm:right-6 h-10 sm:h-16 bg-gray-700 rounded-xl border-2 border-gray-600 flex items-center justify-center"
             >
               <div className="flex gap-2">
                 {[0, 1, 2, 3].map((i) => (
@@ -145,7 +145,7 @@ export function MakoScene() {
                       repeat: Infinity,
                       delay: i * 0.15
                     }}
-                    className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500"
+                    className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-red-500"
                   />
                 ))}
               </div>
